@@ -2,11 +2,17 @@
 import dolar from "../components/dolar.vue";
 import indice from "../components/indice.vue";
 import acoes from "../components/acao.vue";
+import { mapState } from "pinia";
+import { useAuthStore } from "../stores/auth";
 import axios from "axios";
 export default {
   components: { dolar, indice, acoes },
   data() {
     return {
+      user: {
+        username: "",
+      },
+      superuser: "",
       empreendimentos: [],
       empreendimento: {},
       indices: [],
@@ -22,6 +28,12 @@ export default {
     this.indices = indices.data;
     const acoes = await axios.get("http://localhost:8000/acoes/");
     this.acoes = acoes.data;
+    const res = await axios.get(`http://localhost:8000/usuario/${this.id}/`);
+    this.user = res.data;
+    console.log(this.user);
+  },
+  computed: {
+    ...mapState(useAuthStore, ["id", "username", "is_superuser"]),
   },
   async getAllComments() {
     const empreendimento = await axios.get("http://localhost:8000/dolar/");
@@ -35,7 +47,7 @@ export default {
 </script>
 
 <template>
-  <div class="all">
+  <div class="all" v-bind="superuser">
     <header>
       <div class="outer">
         <div class="hamburger-menu">
@@ -45,9 +57,22 @@ export default {
           </label>
 
           <ul class="menu__box">
-            <li><a class="menu__item" href="/">Home</a></li>
-            <li><a class="menu__item" href="/faq">Duvidas Frequentes</a></li>
-            <li><a class="menu__item" href="/sobrenos">Sobre Nós</a></li>
+            <li><RouterLink class="menu__item" to="/">Home</RouterLink></li>
+            <li>
+              <RouterLink class="menu__item" to="/faq"
+                >Duvidas Frequentes</RouterLink
+              >
+            </li>
+            <li v-if="is_superuser == false">
+              <RouterLink class="menu__item" to="/sobrenos"
+                >Sobre nós</RouterLink
+              >
+            </li>
+            <li v-if="is_superuser == true">
+              <RouterLink class="menu__item" to="/dolar">{{
+                user.username
+              }}</RouterLink>
+            </li>
             <li>
               <a
                 href="https://www.youtube.com/embed/O69fRhzbHn8"
@@ -73,9 +98,12 @@ export default {
           <a href="/faq">
             <li class="desk">Dúvidas frequentes</li>
           </a>
-          <a href="/sobrenos">
-            <li class="desk">Sobre nós</li>
-          </a>
+          <li v-if="is_superuser == false">
+            <RouterLink class="desk" to="/sobrenos">Sobre nós</RouterLink>
+          </li>
+          <li v-if="is_superuser == true">
+            <RouterLink class="desk" to="/">{{ user.username }}</RouterLink>
+          </li>
 
           <!-- link da live vindo do backend -->
           <div class="live">

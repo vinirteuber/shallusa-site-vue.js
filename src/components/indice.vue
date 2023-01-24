@@ -5,7 +5,9 @@ import axios from "axios";
 export default {
   name: "indices",
   props: ["id", "indice"],
-  user: {},
+  user: {
+    username: "",
+  },
   Indices: {
     Indice: 0,
   },
@@ -18,14 +20,17 @@ export default {
   async created() {
     const res = await axios.get(`http://localhost:8000/indice/${this.id}/`);
     this.Indice = res.data;
+    const des = await axios.get(`http://localhost:8000/usuario/${this.id}/`);
+    this.user = des.data;
+    console.log(this.user);
   },
   computed: {
-    ...mapState(useAuthStore, ["indices", "username", "foto"]),
+    ...mapState(useAuthStore, ["indices", "username", "foto", "is_superuser"]),
   },
 };
 </script>
 <template>
-  <div class="indice">
+  <div class="indice" v-bind="superuser">
     <div class="card-video">
       <div class="title">
         <h1>{{ indice.titulo }}</h1>

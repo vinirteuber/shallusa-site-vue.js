@@ -5,7 +5,9 @@ import axios from "axios";
 export default {
   name: "empreendimentos",
   props: ["id", "empreendimento"],
-  user: {},
+  user: {
+    username: "",
+  },
   Empreendimentos: {
     Empreendimento: 0,
   },
@@ -18,14 +20,22 @@ export default {
   async created() {
     const res = await axios.get(`http://localhost:8000/dolar/${this.id}/`);
     this.Empreendimento = res.data;
+    const des = await axios.get(`http://localhost:8000/usuario/${this.id}/`);
+    this.user = des.data;
+    console.log(this.user);
   },
   computed: {
-    ...mapState(useAuthStore, ["empreendimentos", "username", "foto"]),
+    ...mapState(useAuthStore, [
+      "empreendimentos",
+      "username",
+      "foto",
+      "is_superuser",
+    ]),
   },
 };
 </script>
 <template>
-  <div class="cards">
+  <div class="cards" v-bind="superuser">
     <div class="card-video">
       <div class="title">
         <h1>{{ empreendimento.titulo }}</h1>
@@ -38,7 +48,14 @@ export default {
       </div>
       <div class="btn">
         <a :href="empreendimento.link" target="_blank">
+          <div class="delet">
+            <button v-if="is_superuser == true">DELETAR</button>
+            <button v-if="is_superuser == true">ALTERAR</button>
+          </div>
           <button>Saiba Mais</button>
+          <div class="obter">
+            <span v-if="is_superuser == false">Obter este curso!</span>
+          </div>
         </a>
       </div>
     </div>
@@ -46,6 +63,12 @@ export default {
 </template>
 
 <style>
+.delet {
+  justify-content: center;
+  display: flex;
+  width: 70px;
+}
+
 .cards {
   justify-content: space-between;
   margin: 1rem;
