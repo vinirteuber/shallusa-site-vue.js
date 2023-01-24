@@ -8,16 +8,18 @@ export default {
   user: {},
   Empreendimentos: {
     Empreendimento: 0,
-    tel_responsavel: "",
+    links: "",
   },
   methods: {
     async getAllEmpreendimentos(id) {
-      await this.get(`/publicacao/${id}/`, this.empreendimentos);
+      await this.get(`/publicacoes/${id}/`, this.empreendimentos);
       console.log(this.empreendimentos);
     },
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/publicacao/${this.id}/`);
+    const res = await axios.get(
+      `http://localhost:8000/publicacoes/${this.id}/`
+    );
     this.Empreendimento = res.data;
   },
   computed: {
@@ -26,23 +28,94 @@ export default {
 };
 </script>
 <template>
-  <div class="card-video">
-    <div class="title">
-      <h1>{{ empreendimentos.titulo }}</h1>
-    </div>
-    <div class="desc">
-      <span
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus unde
-        molestias in et, eum nihil nesciunt architecto harum atque aperiam
-        repellendus corrupti, tempore voluptatem doloribus modi. Quas vel
-        quisquam ex!</span
-      >
-    </div>
-    <div class="video">
-      <iframe src="https://www.youtube.com/embed/_py8z4GJRl8"> </iframe>
-    </div>
-    <div class="btn">
-      <button>Saiba Mais</button>
+  <div class="cards">
+    <div class="card-video">
+      <div class="title">
+        <h1>{{ empreendimento.titulo }}</h1>
+      </div>
+      <div class="desc">
+        <span
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+          unde molestias in et, eum nihil nesciunt architecto harum atque
+          aperiam repellendus corrupti, tempore voluptatem doloribus modi. Quas
+          vel quisquam ex!</span
+        >
+      </div>
+      <div class="video">
+        <iframe :src="empreendimento.link"> </iframe>
+      </div>
+      <div class="btn">
+        <a :href="empreendimento.link" target="_blank">
+          <button>Saiba Mais</button>
+        </a>
+      </div>
     </div>
   </div>
 </template>
+
+<style>
+.cards {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-video {
+  -webkit-box-shadow: 4px 7px 36px 0px rgba(191, 238, 255, 1);
+  -moz-box-shadow: 4px 7px 36px 0px rgba(191, 238, 255, 1);
+  box-shadow: 4px 7px 36px 0px rgba(191, 238, 255, 1);
+  border: solid 2px #87c8e0;
+  color: #eef;
+  font-family: "League Spartan", sans-serif;
+  margin-right: 50px;
+  border-radius: 1rem;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  background-color: #000000;
+}
+
+iframe {
+  margin-top: 1rem;
+  height: 300px;
+  width: 380px;
+}
+.btn button {
+  text-transform: uppercase;
+  color: #000000;
+  background-color: #87c8e0;
+  margin-bottom: 1rem;
+  font-size: 16pt;
+  border-radius: 1rem;
+  margin-top: 10px;
+  height: 50px;
+  width: 250px;
+}
+
+.btn button:hover {
+  color: #87c8e0;
+  background-color: #000000;
+  margin-bottom: 1rem;
+  font-size: 16pt;
+  border: 1px solid #87c8e0;
+  border-radius: 1rem;
+  margin-top: 10px;
+  height: 50px;
+  width: 250px;
+  transition: 0.5s;
+}
+
+.sub-title span {
+  padding: 1rem;
+}
+
+.title h1 {
+  margin-top: 1rem;
+  color: #87c8e0;
+  margin-bottom: 1rem;
+}
+</style>
