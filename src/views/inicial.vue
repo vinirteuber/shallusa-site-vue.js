@@ -79,13 +79,15 @@ export default {
       <div class="carrossel">
         <img
           src="../assets/WhatsApp Image 2023-01-23 at 12.55.30.jpeg"
-          alt="banner" />
+          alt="banner"
+        />
       </div>
       <div class="cards">
         <cards
           v-for="empreendimento in empreendimentos"
           :key="empreendimento.id"
-          :empreendimento="empreendimento" />
+          :empreendimento="empreendimento"
+        />
       </div>
     </div>
     <footer>
@@ -106,7 +108,13 @@ export default {
               <li>
                 <a href="https://wa.me/557599455633" target="_blank">FAQ</a>
               </li>
-              <li><a href="#">Obter o curso</a></li>
+              <li>
+                <a
+                  href="https://www.nelogica.com.br/produtos/modulos-opcionais?modulo=estrategias&id=6932"
+                  target="_blank"
+                  >Obter o curso</a
+                >
+              </li>
             </ul>
           </div>
           <!--end footer col-->
@@ -131,7 +139,8 @@ export default {
             <div class="medias-socias">
               <a
                 href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank">
+                target="_blank"
+              >
                 <i class="fa fa-youtube"></i>
               </a>
               <a href="https://www.instagram.com/shallusa01/" target="_blank">

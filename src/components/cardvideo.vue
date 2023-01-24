@@ -8,7 +8,6 @@ export default {
   user: {},
   Empreendimentos: {
     Empreendimento: 0,
-    links: "",
   },
   methods: {
     async getAllEmpreendimentos(id) {
@@ -34,12 +33,7 @@ export default {
         <h1>{{ empreendimento.titulo }}</h1>
       </div>
       <div class="desc">
-        <span
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-          unde molestias in et, eum nihil nesciunt architecto harum atque
-          aperiam repellendus corrupti, tempore voluptatem doloribus modi. Quas
-          vel quisquam ex!</span
-        >
+        <span>{{ empreendimento.descricao }}</span>
       </div>
       <div class="video">
         <iframe :src="empreendimento.link"> </iframe>
@@ -75,6 +69,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 600px;
   width: 400px;
   background-color: #000000;
 }
