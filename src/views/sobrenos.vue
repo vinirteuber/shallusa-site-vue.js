@@ -1,28 +1,48 @@
 <template>
   <div class="all">
     <header>
+      <div class="outer">
+        <div class="hamburger-menu">
+          <input id="menu__toggle" type="checkbox" />
+          <label class="menu__btn" for="menu__toggle">
+            <span></span>
+          </label>
+
+          <ul class="menu__box">
+            <li><a class="menu__item" href="/home">Home</a></li>
+            <li><a class="menu__item" href="/faq">Duvidas Frequentes</a></li>
+            <li><a class="menu__item" href="/sobrenos">Sobre Nós</a></li>
+            <li>
+              <a href="">
+                <button>Chat ao-vivo</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="logo">
         <a href="/">
           <img src="../assets/shallusa.png" alt="" />
         </a>
       </div>
       <div class="list">
-        <ul>
+        <ul class="links">
           <a href="/">
-            <li>Home</li>
+            <li class="desk">Home</li>
           </a>
 
           <a href="/faq">
-            <li>Dúvidas frequentes</li>
+            <li class="desk">Dúvidas frequentes</li>
           </a>
           <a href="/sobrenos">
-            <li>Sobre nós</li>
+            <li class="desk">Sobre nós</li>
           </a>
           <!-- link da live vindo do backend -->
-
-          <a href="">
-            <button>Chat ao-vivo</button>
-          </a>
+          <div class="live">
+            <a href="">
+              <button>Chat ao-vivo</button>
+            </a>
+          </div>
 
           <!-- link da live vindo do backend -->
         </ul>
