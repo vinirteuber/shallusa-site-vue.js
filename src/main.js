@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router/index";
 import { createPinia } from "pinia";
 import "./plugins/axios";
-import "./style.css";
+import "../src/assets/style.css";
 
 const app = createApp(App);
 app.use(router);
