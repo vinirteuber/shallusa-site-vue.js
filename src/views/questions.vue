@@ -35,7 +35,7 @@ export default {
           <li><a class="menu__item" href="/sobrenos">Sobre Nós</a></li>
           <li>
             <a href="">
-              <button>Chat ao-vivo</button>
+              <button>Sala ao-vivo</button>
             </a>
           </li>
         </ul>
@@ -61,7 +61,7 @@ export default {
           </a>
           <!-- link da live vindo do backend -->
           <div class="live">
-            <button>Chat ao-vivo</button>
+            <button>ao-vivo</button>
           </div>
           <!-- link da live vindo do backend -->
         </ul>
@@ -70,7 +70,8 @@ export default {
     <answer
       v-for="empreendimento in empreendimentos"
       :key="empreendimento.id"
-      :empreendimento="empreendimento" />
+      :empreendimento="empreendimento"
+    />
     <footer>
       <div class="container-footer">
         <div class="row-footer">
@@ -120,7 +121,8 @@ export default {
             <div class="medias-socias">
               <a
                 href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank">
+                target="_blank"
+              >
                 <i class="fa fa-youtube"></i>
               </a>
               <a href="https://www.instagram.com/shallusa01/" target="_blank">

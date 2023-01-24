@@ -1,15 +1,18 @@
 <script>
 import dolar from "../components/dolar.vue";
 import indice from "../components/indice.vue";
+import acoes from "../components/acao.vue";
 import axios from "axios";
 export default {
-  components: { dolar, indice },
+  components: { dolar, indice, acoes },
   data() {
     return {
       empreendimentos: [],
       empreendimento: {},
       indices: [],
       indice: {},
+      acoes: [],
+      acao: {},
     };
   },
   async created() {
@@ -17,12 +20,16 @@ export default {
     this.empreendimentos = empreendimentos.data;
     const indices = await axios.get("http://localhost:8000/indice/");
     this.indices = indices.data;
+    const acoes = await axios.get("http://localhost:8000/acoes/");
+    this.acoes = acoes.data;
   },
   async getAllComments() {
     const empreendimento = await axios.get("http://localhost:8000/dolar/");
     this.empreendimento = empreendimento.data;
     const indice = await axios.get("http://localhost:8000/indice/");
     this.indice = indice.data;
+    const acao = await axios.get("http://localhost:8000/acoes/");
+    this.acao = acao.data;
   },
 };
 </script>
@@ -44,8 +51,9 @@ export default {
             <li>
               <a
                 href="https://www.youtube.com/embed/O69fRhzbHn8"
-                target="_blank">
-                <button>Chat ao-vivo</button>
+                target="_blank"
+              >
+                <button>Sala ao-vivo</button>
               </a>
             </li>
           </ul>
@@ -72,7 +80,7 @@ export default {
           <!-- link da live vindo do backend -->
           <div class="live">
             <a href="">
-              <button>Chat ao-vivo</button>
+              <button>Sala ao-vivo</button>
             </a>
           </div>
 
@@ -84,18 +92,25 @@ export default {
       <div class="carrossel">
         <img
           src="../assets/WhatsApp Image 2023-01-23 at 12.55.30.jpeg"
-          alt="banner" />
+          alt="banner"
+        />
       </div>
 
+      <h1>INVESTIMENTOS GOLD</h1>
       <div class="cards">
         <dolar
           v-for="empreendimento in empreendimentos"
           :key="empreendimento.id"
-          :empreendimento="empreendimento" />
+          :empreendimento="empreendimento"
+        />
       </div>
-
+      <h1>INVESTIMENTOS INDICE</h1>
       <div class="indice">
         <indice v-for="indice in indices" :key="indice.id" :indice="indice" />
+      </div>
+      <h1>INVESTIMENTOS AÇOES</h1>
+      <div class="acoes">
+        <acoes v-for="acao in acoes" :key="acao.id" :acao="acao" />
       </div>
     </div>
     <footer>
@@ -147,7 +162,8 @@ export default {
             <div class="medias-socias">
               <a
                 href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank">
+                target="_blank"
+              >
                 <i class="fa fa-youtube"></i>
               </a>
               <a href="https://www.instagram.com/shallusa01/" target="_blank">
@@ -161,3 +177,9 @@ export default {
     </footer>
   </div>
 </template>
+
+<style>
+h1 {
+  color: #87c8e0;
+}
+</style>

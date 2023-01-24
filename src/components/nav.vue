@@ -10,7 +10,7 @@
         <li>Home</li>
         <li>Dúvidas frequentes</li>
         <li>Sobre nós</li>
-        <button>Chat ao-vivo</button>
+        <button>ao-vivo</button>
       </ul>
     </div>
   </header>
