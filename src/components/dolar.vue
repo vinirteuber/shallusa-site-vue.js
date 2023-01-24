@@ -48,11 +48,18 @@ export default {
       </div>
       <div class="btn">
         <a :href="empreendimento.link" target="_blank">
-          <div class="delet">
-            <button v-if="is_superuser == true">DELETAR</button>
-            <button v-if="is_superuser == true">ALTERAR</button>
+          <div class="btn-da">
+            <div class="delete">
+              <button v-if="is_superuser == true">DELETAR</button>
+            </div>
+
+            <div class="alterar">
+              <button v-if="is_superuser == true">ALTERAR</button>
+            </div>
           </div>
-          <button>Saiba Mais</button>
+          <div class="saiba-mais">
+            <button>Saiba Mais</button>
+          </div>
           <div class="obter">
             <span v-if="is_superuser == false">Obter este curso!</span>
           </div>
@@ -62,13 +69,7 @@ export default {
   </div>
 </template>
 
-<style>
-.delet {
-  justify-content: center;
-  display: flex;
-  width: 70px;
-}
-
+<style scoped>
 .cards {
   justify-content: space-between;
   margin: 1rem;
@@ -109,6 +110,11 @@ iframe {
   height: 300px;
   width: 380px;
 }
+
+.delete button {
+  background-color: red;
+}
+
 .btn button {
   text-transform: uppercase;
   color: #000000;
@@ -118,20 +124,6 @@ iframe {
   border-radius: 1rem;
   margin-top: 10px;
   height: 50px;
-  width: 250px;
-}
-
-.btn button:hover {
-  color: #87c8e0;
-  background-color: #000000;
-  margin-bottom: 1rem;
-  font-size: 16pt;
-  border: 1px solid #87c8e0;
-  border-radius: 1rem;
-  margin-top: 10px;
-  height: 50px;
-  width: 250px;
-  transition: 0.5s;
 }
 
 .sub-title span {

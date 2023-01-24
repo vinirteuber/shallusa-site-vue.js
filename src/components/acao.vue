@@ -100,7 +100,6 @@ iframe {
   border-radius: 1rem;
   margin-top: 10px;
   height: 50px;
-  width: 250px;
   transition: 0.5s;
 }
 

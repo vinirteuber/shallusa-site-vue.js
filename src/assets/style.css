@@ -6,12 +6,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0px !important;
-  padding: 0px !important;
-}
-
 .logo img {
   margin: 0;
   display: flex;
@@ -19,8 +13,12 @@ body {
   width: 300px;
 }
 
+a {
+  color: inherit;
+}
+
 .carrossel img {
-  margin-top: 2rem;
+  margin-top: 7rem;
   width: 1200px;
   margin-bottom: 2rem;
 }
@@ -139,6 +137,15 @@ header ul {
   box-shadow: 2px 2px 6px rgba(14, 14, 14, 0.4);
   transition-duration: 0.25s;
 }
+
+.btn-da {
+  display: flex;
+}
+
+.btn-da button {
+  width: 150px;
+}
+
 .menu__item {
   display: block;
   padding: 12px 24px;
@@ -298,6 +305,13 @@ i {
 
 main {
   padding: 7rem;
+}
+
+.saiba-mais {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 button {

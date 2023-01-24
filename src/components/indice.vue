@@ -96,19 +96,6 @@ iframe {
   width: 250px;
 }
 
-.btn button:hover {
-  color: #87c8e0;
-  background-color: #000000;
-  margin-bottom: 1rem;
-  font-size: 16pt;
-  border: 1px solid #87c8e0;
-  border-radius: 1rem;
-  margin-top: 10px;
-  height: 50px;
-  width: 250px;
-  transition: 0.5s;
-}
-
 .sub-title span {
   padding: 1rem;
 }
