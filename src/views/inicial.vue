@@ -1,25 +1,28 @@
 <script>
-import cards from "../components/cardvideo.vue";
+import dolar from "../components/dolar.vue";
+import indice from "../components/indice.vue";
 import axios from "axios";
 export default {
-  components: { cards },
+  components: { dolar, indice },
   data() {
     return {
       empreendimentos: [],
       empreendimento: {},
+      indices: [],
+      indice: {},
     };
   },
   async created() {
-    const empreendimentos = await axios.get(
-      "http://localhost:8000/publicacoes/"
-    );
+    const empreendimentos = await axios.get("http://localhost:8000/dolar/");
     this.empreendimentos = empreendimentos.data;
+    const indices = await axios.get("http://localhost:8000/indice/");
+    this.indices = indices.data;
   },
   async getAllComments() {
-    const empreendimento = await axios.get(
-      "http://localhost:8000/publicacoes/"
-    );
+    const empreendimento = await axios.get("http://localhost:8000/dolar/");
     this.empreendimento = empreendimento.data;
+    const indice = await axios.get("http://localhost:8000/indice/");
+    this.indice = indice.data;
   },
 };
 </script>
@@ -39,7 +42,10 @@ export default {
             <li><a class="menu__item" href="/faq">Duvidas Frequentes</a></li>
             <li><a class="menu__item" href="/sobrenos">Sobre Nós</a></li>
             <li>
-              <a href="">
+              <a
+                href="https://www.youtube.com/embed/O69fRhzbHn8"
+                target="_blank"
+              >
                 <button>Chat ao-vivo</button>
               </a>
             </li>
@@ -82,12 +88,16 @@ export default {
           alt="banner"
         />
       </div>
+
       <div class="cards">
-        <cards
+        <dolar
           v-for="empreendimento in empreendimentos"
           :key="empreendimento.id"
           :empreendimento="empreendimento"
         />
+        <div class="indice">
+          <indice v-for="indice in indices" :key="indice.id" :indice="indice" />
+        </div>
       </div>
     </div>
     <footer>

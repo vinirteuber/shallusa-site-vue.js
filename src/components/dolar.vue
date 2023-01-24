@@ -11,14 +11,12 @@ export default {
   },
   methods: {
     async getAllEmpreendimentos(id) {
-      await this.get(`/publicacoes/${id}/`, this.empreendimentos);
+      await this.get(`/dolar/${id}/`, this.empreendimentos);
       console.log(this.empreendimentos);
     },
   },
   async created() {
-    const res = await axios.get(
-      `http://localhost:8000/publicacoes/${this.id}/`
-    );
+    const res = await axios.get(`http://localhost:8000/dolar/${this.id}/`);
     this.Empreendimento = res.data;
   },
   computed: {
