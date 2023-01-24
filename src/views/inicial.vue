@@ -34,10 +34,23 @@ export default {
       </div>
       <div class="list">
         <ul>
-          <li>Home</li>
-          <li>Dúvidas frequentes</li>
-          <li>Sobre nós</li>
-          <button>Chat ao-vivo</button>
+          <a href="/">
+            <li>Home</li>
+          </a>
+          <a href="/faq">
+            <li>Dúvidas frequentes</li>
+          </a>
+          <a href="/sobrenos">
+            <li>Sobre nós</li>
+          </a>
+
+          <!-- link da live vindo do backend -->
+
+          <a href="">
+            <button>Chat ao-vivo</button>
+          </a>
+
+          <!-- link da live vindo do backend -->
         </ul>
       </div>
     </header>
@@ -111,213 +124,3 @@ export default {
     </footer>
   </div>
 </template>
-
-<style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-}
-
-.carrossel img {
-  margin-top: 2rem;
-  width: 1000px;
-  margin-bottom: 2rem;
-}
-.cards {
-  display: flex;
-  margin-bottom: 5rem;
-}
-
-.all {
-  min-width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(#000000, #111111);
-}
-
-.content {
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer {
-  font-family: "Poppins", sans-serif;
-  color: #eef;
-  font-size: 20pt;
-  background-color: #000000;
-  height: 20%;
-}
-
-header {
-  font-family: "League Spartan", sans-serif;
-  align-items: center;
-  display: flex;
-  height: 75px;
-  background: #000000;
-}
-
-header ul {
-  display: flex;
-}
-
-.logo img {
-  margin-left: 5rem;
-  cursor: pointer;
-  display: flex;
-  width: 250px;
-}
-.logo {
-  width: 60%;
-}
-.list {
-  float: right;
-}
-
-li {
-  color: #87c8e0;
-  cursor: pointer;
-  font-size: 16pt;
-  list-style: none;
-  margin-left: 20px;
-}
-
-li:hover {
-  text-decoration: underline;
-}
-
-.desc {
-  max-width: 500px;
-  margin-bottom: 2rem;
-}
-
-.desc span {
-  color: #eef;
-  font-size: 16pt;
-}
-.title h1 {
-  color: #87c8e0;
-  margin-bottom: 2rem;
-}
-i {
-  margin-right: 0rem;
-}
-main {
-  padding: 7rem;
-}
-
-button {
-  cursor: pointer;
-  margin-left: 15px;
-  width: 100px;
-  color: #87c8e0;
-  background-color: #000000;
-  border: solid 1px #87c8e0;
-  border-radius: 10px;
-}
-button:hover {
-  color: #000000;
-  background-color: #87c8e0;
-  transition: 1s;
-  border-radius: 10px;
-}
-footer {
-  padding: 50px 0;
-}
-.container-footer {
-  max-width: 1400px;
-  padding: 0 4%;
-  margin: auto;
-}
-.row-footer {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.footer-col {
-  width: 25%;
-  padding: 0 15px;
-}
-.footer-col h4 {
-  font-size: 22px;
-  color: #87c8e0;
-  margin-bottom: 20px;
-  font-weight: 500;
-  position: relative;
-  text-transform: uppercase;
-}
-.footer-col ul {
-  list-style: none;
-}
-.footer-col ul li {
-  margin: 10px 0;
-}
-.footer-col ul li a {
-  font-size: 16px;
-  text-transform: capitalize;
-  color: white;
-  text-decoration: none;
-  font-weight: 300;
-  display: block;
-  transition: all 0.3s ease;
-}
-.footer-col ul li a:hover {
-  color: #cecdcd;
-  padding-left: 10px;
-}
-.footer-col .medias-socias {
-  margin-top: 25px;
-}
-.footer-col .medias-socias a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  width: 50px;
-  margin: 0 10px 10px 0;
-  text-decoration: none;
-  border-radius: 50%;
-  color: white;
-  border: 1px solid white;
-  transition: all 0.5s ease;
-}
-.footer-col .medias-socias a i {
-  font-size: 20px;
-}
-
-i[data-v-70d5cb94] {
-  margin: 0;
-}
-.footer-col .medias-socias a:hover {
-  color: #87c8e0;
-  background-color: #111111;
-}
-.footer-col .form-sub input {
-  width: 100%;
-  padding: 10px;
-  font-size: 15px;
-  outline: none;
-  border: 1px solid white;
-  color: white;
-  background-color: #87c8e0;
-}
-.footer-col .form-sub input::placeholder {
-  color: white;
-}
-
-/* Responsivo */
-@media (max-width: 800px) {
-  .footer-col {
-    width: 50%;
-    margin-bottom: 30px;
-  }
-}
-@media (max-width: 600px) {
-  .footer-col {
-    width: 100%;
-  }
-}
-</style>
