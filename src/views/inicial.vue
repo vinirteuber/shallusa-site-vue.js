@@ -38,14 +38,13 @@ export default {
           </label>
 
           <ul class="menu__box">
-            <li><a class="menu__item" href="/home">Home</a></li>
+            <li><a class="menu__item" href="/">Home</a></li>
             <li><a class="menu__item" href="/faq">Duvidas Frequentes</a></li>
             <li><a class="menu__item" href="/sobrenos">Sobre Nós</a></li>
             <li>
               <a
                 href="https://www.youtube.com/embed/O69fRhzbHn8"
-                target="_blank"
-              >
+                target="_blank">
                 <button>Chat ao-vivo</button>
               </a>
             </li>
@@ -85,19 +84,18 @@ export default {
       <div class="carrossel">
         <img
           src="../assets/WhatsApp Image 2023-01-23 at 12.55.30.jpeg"
-          alt="banner"
-        />
+          alt="banner" />
       </div>
 
       <div class="cards">
         <dolar
           v-for="empreendimento in empreendimentos"
           :key="empreendimento.id"
-          :empreendimento="empreendimento"
-        />
-        <div class="indice">
-          <indice v-for="indice in indices" :key="indice.id" :indice="indice" />
-        </div>
+          :empreendimento="empreendimento" />
+      </div>
+
+      <div class="indice">
+        <indice v-for="indice in indices" :key="indice.id" :indice="indice" />
       </div>
     </div>
     <footer>
@@ -149,8 +147,7 @@ export default {
             <div class="medias-socias">
               <a
                 href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank"
-              >
+                target="_blank">
                 <i class="fa fa-youtube"></i>
               </a>
               <a href="https://www.instagram.com/shallusa01/" target="_blank">

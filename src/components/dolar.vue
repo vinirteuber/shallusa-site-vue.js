@@ -47,20 +47,29 @@ export default {
 
 <style>
 .cards {
+  justify-content: space-between;
+  margin: 1rem;
   flex-wrap: wrap;
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.indice {
+  justify-content: space-between;
+  margin: 1rem;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
 }
 
 .card-video {
+  justify-content: space-between;
   -webkit-box-shadow: 4px 7px 36px 0px rgba(191, 238, 255, 1);
   -moz-box-shadow: 4px 7px 36px 0px rgba(191, 238, 255, 1);
   box-shadow: 4px 7px 36px 0px rgba(191, 238, 255, 1);
   border: solid 2px #87c8e0;
   color: #eef;
   font-family: "League Spartan", sans-serif;
-  margin-right: 50px;
   border-radius: 1rem;
   padding: 10px;
   display: flex;

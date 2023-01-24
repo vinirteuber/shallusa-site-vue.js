@@ -25,7 +25,7 @@ export default {
 };
 </script>
 <template>
-  <div class="cards">
+  <div class="indice">
     <div class="card-video">
       <div class="title">
         <h1>{{ indice.titulo }}</h1>
@@ -47,10 +47,11 @@ export default {
 
 <style>
 .cards {
+  justify-content: space-between;
+  margin: 1rem;
   flex-wrap: wrap;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .card-video {
@@ -60,13 +61,14 @@ export default {
   border: solid 2px #87c8e0;
   color: #eef;
   font-family: "League Spartan", sans-serif;
-  margin-right: 50px;
+
   border-radius: 1rem;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 2rem;
   height: 600px;
   width: 400px;
   background-color: #000000;

@@ -30,7 +30,7 @@ export default {
         </label>
 
         <ul class="menu__box">
-          <li><a class="menu__item" href="/home">Home</a></li>
+          <li><a class="menu__item" href="/">Home</a></li>
           <li><a class="menu__item" href="/faq">Duvidas Frequentes</a></li>
           <li><a class="menu__item" href="/sobrenos">Sobre Nós</a></li>
           <li>
@@ -70,8 +70,7 @@ export default {
     <answer
       v-for="empreendimento in empreendimentos"
       :key="empreendimento.id"
-      :empreendimento="empreendimento"
-    />
+      :empreendimento="empreendimento" />
     <footer>
       <div class="container-footer">
         <div class="row-footer">
@@ -121,8 +120,7 @@ export default {
             <div class="medias-socias">
               <a
                 href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank"
-              >
+                target="_blank">
                 <i class="fa fa-youtube"></i>
               </a>
               <a href="https://www.instagram.com/shallusa01/" target="_blank">
