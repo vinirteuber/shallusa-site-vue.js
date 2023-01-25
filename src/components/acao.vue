@@ -51,7 +51,7 @@ export default {
         <button>Saiba Mais</button>
       </div>
       <div class="comprar">
-        <a :href="acao.link" target="_blank"> Adquirir este curso</a>
+        <a :href="acao.curso" target="_blank"> Adquirir este curso</a>
       </div>
     </div>
   </div>

@@ -207,7 +207,6 @@ header ul {
     justify-content: center;
   }
   .logo img {
-    margin: 0;
     width: 300px;
     display: flex;
     align-items: center;

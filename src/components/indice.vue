@@ -53,7 +53,7 @@ export default {
         <button>Saiba Mais</button>
       </div>
       <div class="comprar">
-        <a :href="indice.link" target="_blank"> Adquirir este curso</a>
+        <a :href="indice.curso" target="_blank"> Adquirir este curso</a>
       </div>
     </div>
   </div>

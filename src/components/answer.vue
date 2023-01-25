@@ -26,23 +26,68 @@ export default {
 </script>
 
 <template>
-  <div class="title">
-    <h1>{{ empreendimento.topico }}</h1>
+  <div class="balao">
+    <div class="topic">
+      <h1>{{ empreendimento.topico }}</h1>
+    </div>
+    {{ empreendimento.pergunta }}
   </div>
-  <div class="desc">
-    <span> Cliente: {{ empreendimento.pergunta }}</span>
-  </div>
-  <div class="resp">
-    <span> Shallusa: {{ empreendimento.texto }}</span>
+  <div class="balao2">
+    <h1>Shallusa</h1>
+    {{ empreendimento.texto }}
   </div>
 </template>
 
-<style scoped>
-.desc {
-  background-color: #111111;
-}
+<style>
+.balao2 {
+  font-family: Poppins, sans-serif;
+  margin-top: 60px;
+  background: rgb(216, 216, 216);
+  border-radius: 15px;
+  width: 300px;
+  height: 100px;
 
-.resp {
-  background-color: #b6b6b6;
+  position: relative;
+}
+.balao2:after {
+  content: "";
+
+  width: 0;
+  height: 0;
+
+  position: absolute;
+
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgb(216, 216, 216);
+
+  bottom: -20px;
+  left: 20%;
+}
+.balao {
+  font-family: Poppins, sans-serif;
+  margin-left: 40px;
+  margin-top: 40px;
+  background: #87c8e0;
+  border-radius: 15px;
+  width: 300px;
+  height: 100px;
+
+  position: relative;
+}
+.balao:after {
+  content: "";
+
+  width: 0;
+  height: 0;
+
+  position: absolute;
+
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #87c8e0;
+
+  bottom: -20px;
+  left: 20%;
 }
 </style>

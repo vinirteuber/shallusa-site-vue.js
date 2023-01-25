@@ -96,12 +96,20 @@ export default {
           <a href="/">
             <li class="desk">Home</li>
           </a>
-
-          <a href="/faq">
-            <li class="desk">Dúvidas frequentes</li>
-          </a>
           <li v-if="is_superuser == true">
-            <RouterLink class="desk" to="/">{{ user.username }}</RouterLink>
+            <RouterLink class="desk" to="/newindice">Indice</RouterLink>
+          </li>
+          <li v-if="is_superuser == true">
+            <RouterLink class="desk" to="/newdolar">Dolar</RouterLink>
+          </li>
+          <li v-if="is_superuser == true">
+            <RouterLink class="desk" to="/newacoes">Ações</RouterLink>
+          </li>
+          <li v-if="is_superuser == true">
+            <RouterLink class="desk" to="/altfaq">SAQadm</RouterLink>
+          </li>
+          <li v-if="is_superuser == false">
+            <RouterLink class="desk" to="/faq">SAQ</RouterLink>
           </li>
 
           <!-- link da live vindo do backend -->

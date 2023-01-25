@@ -3,9 +3,10 @@ import Home from "../views/inicial.vue";
 import Questions from "../views/questions.vue";
 import SobreNos from "../views/sobrenos.vue";
 import Login from "../views/login.vue";
-import Upindice from "../views/updateindice.vue";
 import Updolar from "../views/updatedolar.vue";
-import Upacao from "../views/updateacao.vue";
+import NewDolar from "../views/newdolar.vue";
+import NewAcoes from "../views/newacoes.vue";
+import NewIndice from "../views/newindice.vue";
 
 const routes = [
   {
@@ -34,14 +35,19 @@ const routes = [
     component: Updolar,
   },
   {
-    path: "/updateacao",
-    name: "upacao",
-    component: Upacao,
+    path: "/newdolar",
+    name: "newdolar",
+    component: NewDolar,
   },
   {
-    path: "/updateindice",
-    name: "upindice",
-    component: Upindice,
+    path: "/newacoes",
+    name: "newacoes",
+    component: NewAcoes,
+  },
+  {
+    path: "/newindice",
+    name: "newindice",
+    component: NewIndice,
   },
 ];
 const router = Router();

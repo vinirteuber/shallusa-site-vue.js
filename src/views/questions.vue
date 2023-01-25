@@ -53,8 +53,8 @@ export default {
           <a href="/">
             <li class="desk">Home</li>
           </a>
-          <a href="/sobrenos">
-            <li class="desk">Sobre nós</li>
+          <a href="/faq">
+            <li class="desk">Duvidas Frequentes</li>
           </a>
           <!-- link da live vindo do backend -->
           <div class="live">
@@ -64,11 +64,13 @@ export default {
         </ul>
       </div>
     </header>
-    <answer
-      v-for="empreendimento in empreendimentos"
-      :key="empreendimento.id"
-      :empreendimento="empreendimento"
-    />
+    <div class="saq">
+      <answer
+        v-for="empreendimento in empreendimentos"
+        :key="empreendimento.id"
+        :empreendimento="empreendimento"
+      />
+    </div>
     <footer>
       <div class="container-footer">
         <div class="row-footer">

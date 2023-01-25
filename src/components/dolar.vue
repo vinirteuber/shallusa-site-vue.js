@@ -50,7 +50,9 @@ export default {
       </div>
       <div class="admin">
         <div class="delete">
-          <button v-if="is_superuser == true">Deletar</button>
+          <RouterLink :to="`/delete/${empreendimento.id}`">
+            <button v-if="is_superuser == true">Deletar</button></RouterLink
+          >
         </div>
         <div class="update">
           <RouterLink :to="`/updatedolar/${empreendimento.id}`">
@@ -62,7 +64,7 @@ export default {
         <button>Saiba Mais</button>
       </div>
       <div class="comprar">
-        <a :href="empreendimento.link" target="_blank"> Adquirir este curso</a>
+        <a :href="empreendimento.curso" target="_blank"> Adquirir este curso</a>
       </div>
     </div>
   </div>
@@ -129,7 +131,7 @@ export default {
 
 .button-dolar button:hover {
   transition: 0.5s;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .cards {
   justify-content: space-between;
