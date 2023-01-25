@@ -58,8 +58,7 @@ export default {
               <li>
                 <a
                   href="https://www.youtube.com/embed/O69fRhzbHn8"
-                  target="_blank"
-                >
+                  target="_blank">
                   <button>Sala ao-vivo</button>
                 </a>
               </li>
@@ -110,8 +109,23 @@ export default {
           <answer
             v-for="empreendimento in empreendimentos"
             :key="empreendimento.id"
-            :empreendimento="empreendimento"
-          />
+            :empreendimento="empreendimento" />
+        </div>
+        <div class="input-control">
+          <div class="controls">
+            <div class="top">
+              <span>Tópico:</span>
+              <input type="text" placeholder="Digite um Tópico" />
+            </div>
+            <div class="pergunta">
+              <span>Pergunta:</span>
+              <input type="text" placeholder="Digite a Pergunta" />
+            </div>
+            <div class="reposta">
+              <span>Resposta:</span>
+              <input type="text" placeholder="Digite uma Resposta" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -164,8 +178,7 @@ export default {
             <div class="medias-socias">
               <a
                 href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank"
-              >
+                target="_blank">
                 <i class="fa fa-youtube"></i>
               </a>
               <a href="https://www.instagram.com/shallusa01/" target="_blank">
@@ -181,6 +194,27 @@ export default {
 </template>
 
 <style scoped>
+.input-control {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  border-radius: 0.5rem;
+  outline: 0;
+  padding: 10px;
+}
+
+span {
+  font-family: "Poppins", sans-serif;
+  color: #eef;
+  margin-left: 1rem;
+}
+.controls {
+  display: flex;
+}
 .header {
   z-index: 1000;
 }
