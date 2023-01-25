@@ -38,7 +38,8 @@ export default {
           @keydown.enter="submitLogin()"
           v-model="user.username"
           type="text"
-          placeholder="Digite seu E-mail" />
+          placeholder="Digite seu E-mail"
+        />
       </div>
       <div class="name-top">
         <span>Senha:</span>
@@ -48,7 +49,8 @@ export default {
           @keydown.enter="submitLogin()"
           v-model="user.password"
           type="Password"
-          placeholder="Digite sua senha" />
+          placeholder="Digite sua senha"
+        />
       </div>
       <div class="input-button">
         <!-- <a href="/cachorrada"> -->
@@ -116,7 +118,7 @@ main {
   width: 250px;
   height: 40px;
   margin-top: 1rem;
-  background-color: #161e35;
+  background-color: #333333;
   border-radius: 6px;
   color: #fff;
   outline: none;

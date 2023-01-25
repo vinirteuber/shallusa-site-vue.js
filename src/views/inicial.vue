@@ -100,9 +100,6 @@ export default {
           <a href="/faq">
             <li class="desk">Dúvidas frequentes</li>
           </a>
-          <li v-if="is_superuser == false">
-            <RouterLink class="desk" to="/sobrenos">Sobre nós</RouterLink>
-          </li>
           <li v-if="is_superuser == true">
             <RouterLink class="desk" to="/">{{ user.username }}</RouterLink>
           </li>

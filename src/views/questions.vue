@@ -32,7 +32,6 @@ export default {
         <ul class="menu__box">
           <li><a class="menu__item" href="/">Home</a></li>
           <li><a class="menu__item" href="/faq">Duvidas Frequentes</a></li>
-          <li><a class="menu__item" href="/sobrenos">Sobre Nós</a></li>
           <div class="live">
             <li>
               <a href="">
@@ -53,10 +52,6 @@ export default {
         <ul class="links">
           <a href="/">
             <li class="desk">Home</li>
-          </a>
-
-          <a href="/faq">
-            <li class="desk">Dúvidas frequentes</li>
           </a>
           <a href="/sobrenos">
             <li class="desk">Sobre nós</li>

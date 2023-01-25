@@ -3,6 +3,9 @@ import Home from "../views/inicial.vue";
 import Questions from "../views/questions.vue";
 import SobreNos from "../views/sobrenos.vue";
 import Login from "../views/login.vue";
+import Upindice from "../views/updateindice.vue";
+import Updolar from "../views/updatedolar.vue";
+import Upacao from "../views/updateacao.vue";
 
 const routes = [
   {
@@ -24,6 +27,21 @@ const routes = [
     path: "/admin",
     name: "Login",
     component: Login,
+  },
+  {
+    path: "/updatedolar",
+    name: "updolar",
+    component: Updolar,
+  },
+  {
+    path: "/updateacao",
+    name: "upacao",
+    component: Upacao,
+  },
+  {
+    path: "/updateindice",
+    name: "upindice",
+    component: Upindice,
   },
 ];
 const router = Router();

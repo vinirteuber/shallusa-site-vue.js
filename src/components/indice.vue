@@ -41,11 +41,87 @@ export default {
       <div class="video">
         <iframe :src="indice.link"> </iframe>
       </div>
+      <div class="admin">
+        <div class="delete">
+          <button v-if="is_superuser == true">Deletar</button>
+        </div>
+        <div class="update">
+          <button v-if="is_superuser == true">Editar</button>
+        </div>
+      </div>
+      <div class="button-dolar">
+        <button>Saiba Mais</button>
+      </div>
+      <div class="comprar">
+        <a :href="indice.link" target="_blank"> Adquirir este curso</a>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.comprar {
+  margin-top: 20px;
+}
+
+.admin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.delete button {
+  cursor: pointer;
+  width: 120px;
+  background-color: red;
+  border-radius: 200px;
+  height: 40px;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #000000;
+}
+.update button {
+  cursor: pointer;
+  width: 120px;
+  background-color: #0c5f02;
+  border-radius: 200px;
+  height: 40px;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #000000;
+}
+.button-dolar button {
+  cursor: pointer;
+  width: 250px;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  border-radius: 200px;
+  height: 60px;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #000000;
+}
+
+.button-dolar button:hover {
+  transition: 0.5s;
+  letter-spacing: 2px;
+}
+
 .cards {
   justify-content: space-between;
   margin: 1rem;

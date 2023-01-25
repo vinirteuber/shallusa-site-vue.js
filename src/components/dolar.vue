@@ -2,6 +2,7 @@
 import { mapState } from "pinia";
 import { useAuthStore } from "../stores/auth";
 import axios from "axios";
+import { RouterLink } from "vue-router";
 export default {
   name: "empreendimentos",
   props: ["id", "empreendimento"],
@@ -32,6 +33,7 @@ export default {
       "is_superuser",
     ]),
   },
+  components: { RouterLink },
 };
 </script>
 <template>
@@ -46,14 +48,59 @@ export default {
       <div class="video">
         <iframe :src="empreendimento.link"> </iframe>
       </div>
+      <div class="admin">
+        <div class="delete">
+          <button v-if="is_superuser == true">Deletar</button>
+        </div>
+        <div class="update">
+          <RouterLink :to="`/updatedolar/${empreendimento.id}`">
+            <button v-if="is_superuser == true">Editar</button></RouterLink
+          >
+        </div>
+      </div>
       <div class="button-dolar">
         <button>Saiba Mais</button>
+      </div>
+      <div class="comprar">
+        <a :href="empreendimento.link" target="_blank"> Adquirir este curso</a>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.comprar {
+  margin-top: 20px;
+}
+
+.admin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.delete button {
+  cursor: pointer;
+  width: 120px;
+  background-color: red;
+  border-radius: 200px;
+  height: 40px;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #000000;
+}
+.update button {
+  cursor: pointer;
+  width: 120px;
+  background-color: #0c5f02;
+  border-radius: 200px;
+  height: 40px;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #000000;
+}
+
 .button-dolar button {
   cursor: pointer;
   width: 250px;
