@@ -41,16 +41,11 @@ export default {
       <div class="video">
         <iframe :src="indice.link"> </iframe>
       </div>
-      <div class="btn">
-        <a :href="indice.link" target="_blank">
-          <button>Saiba Mais</button>
-        </a>
-      </div>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 .cards {
   justify-content: space-between;
   margin: 1rem;
@@ -60,10 +55,7 @@ export default {
 }
 
 .card-video {
-  -webkit-box-shadow: 4px 7px 36px 0px rgba(191, 238, 255, 1);
-  -moz-box-shadow: 4px 7px 36px 0px rgba(191, 238, 255, 1);
-  box-shadow: 4px 7px 36px 0px rgba(191, 238, 255, 1);
-  border: solid 2px #87c8e0;
+  border: solid 2px #555555;
   color: #eef;
   font-family: "League Spartan", sans-serif;
 
@@ -87,7 +79,7 @@ iframe {
 .btn button {
   text-transform: uppercase;
   color: #000000;
-  background-color: #87c8e0;
+  background-color: #555555;
   margin-bottom: 1rem;
   font-size: 16pt;
   border-radius: 1rem;
@@ -102,7 +94,7 @@ iframe {
 
 .title h1 {
   margin-top: 1rem;
-  color: #87c8e0;
+  color: #555555;
   margin-bottom: 1rem;
 }
 </style>

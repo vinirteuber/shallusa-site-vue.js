@@ -138,14 +138,6 @@ header ul {
   transition-duration: 0.25s;
 }
 
-.btn-da {
-  display: flex;
-}
-
-.btn-da button {
-  width: 150px;
-}
-
 .menu__item {
   display: block;
   padding: 12px 24px;
@@ -314,21 +306,6 @@ main {
   text-decoration: none;
 }
 
-button {
-  cursor: pointer;
-  margin-left: 15px;
-  width: 100px;
-  color: #87c8e0;
-  background-color: #000000;
-  border: solid 1px #87c8e0;
-  border-radius: 10px;
-}
-button:hover {
-  color: #000000;
-  background-color: #87c8e0;
-  transition: 1s;
-  border-radius: 10px;
-}
 footer {
   padding: 50px 0;
 }
@@ -376,6 +353,23 @@ footer {
 .footer-col .medias-socias {
   margin-top: 25px;
 }
+
+.live button {
+  cursor: pointer;
+  margin-left: 15px;
+  width: 100px;
+  color: #87c8e0;
+  background-color: #000000;
+  border: solid 1px #87c8e0;
+  border-radius: 10px;
+}
+.live button:hover {
+  color: #000000;
+  background-color: #87c8e0;
+  transition: 1s;
+  border-radius: 10px;
+}
+
 .footer-col .medias-socias a {
   display: inline-flex;
   align-items: center;

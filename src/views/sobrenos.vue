@@ -12,11 +12,13 @@
             <li><a class="menu__item" href="/">Home</a></li>
             <li><a class="menu__item" href="/faq">Duvidas Frequentes</a></li>
             <li><a class="menu__item" href="/sobrenos">Sobre Nós</a></li>
-            <li>
-              <a href="">
-                <button>Sala ao-vivo</button>
-              </a>
-            </li>
+            <div class="live">
+              <li>
+                <a href="">
+                  <button>Sala ao-vivo</button>
+                </a>
+              </li>
+            </div>
           </ul>
         </div>
       </div>
@@ -40,7 +42,7 @@
           <!-- link da live vindo do backend -->
           <div class="live">
             <a href="">
-              <button>Chat ao-vivo</button>
+              <button>Sala ao-vivo</button>
             </a>
           </div>
 
