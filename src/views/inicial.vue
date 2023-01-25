@@ -106,7 +106,7 @@ export default {
             <RouterLink class="desk" to="/newacoes">Ações</RouterLink>
           </li>
           <li v-if="is_superuser == true">
-            <RouterLink class="desk" to="/altfaq">SAQadm</RouterLink>
+            <RouterLink class="desk" to="/faq">SAQadm</RouterLink>
           </li>
           <li v-if="is_superuser == false">
             <RouterLink class="desk" to="/faq">SAQ</RouterLink>

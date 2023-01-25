@@ -1,10 +1,15 @@
 <script>
+import { mapState } from "pinia";
+import { useAuthStore } from "../stores/auth";
 import answer from "../components/answer.vue";
 import axios from "axios";
 export default {
   components: { answer },
   data() {
     return {
+      user: {
+        superuser: {},
+      },
       empreendimentos: [],
       empreendimento: {},
     };
@@ -17,32 +22,51 @@ export default {
     const empreendimento = await axios.get("http://localhost:8000/saq/");
     this.empreendimento = empreendimento.data;
   },
+  computed: {
+    ...mapState(useAuthStore, ["id", "username", "is_superuser"]),
+  },
 };
 </script>
-
 <template>
-  <div class="all">
-    <div class="outer">
-      <div class="hamburger-menu">
-        <input id="menu__toggle" type="checkbox" />
-        <label class="menu__btn" for="menu__toggle">
-          <span></span>
-        </label>
-
-        <ul class="menu__box">
-          <li><a class="menu__item" href="/">Home</a></li>
-          <li><a class="menu__item" href="/faq">Duvidas Frequentes</a></li>
-          <div class="live">
-            <li>
-              <a href="">
-                <button>Sala ao-vivo</button>
-              </a>
-            </li>
-          </div>
-        </ul>
-      </div>
-    </div>
+  <div class="all" v-bind="superuser">
     <header>
+      <div class="outer">
+        <div class="hamburger-menu">
+          <input id="menu__toggle" type="checkbox" />
+          <label class="menu__btn" for="menu__toggle">
+            <span></span>
+          </label>
+
+          <ul class="menu__box">
+            <li><RouterLink class="menu__item" to="/">Home</RouterLink></li>
+            <li>
+              <RouterLink class="menu__item" to="/faq"
+                >Duvidas Frequentes</RouterLink
+              >
+            </li>
+            <li v-if="is_superuser == false">
+              <RouterLink class="menu__item" to="/sobrenos"
+                >Sobre nós</RouterLink
+              >
+            </li>
+            <li v-if="is_superuser == true">
+              <RouterLink class="menu__item" to="/dolar">{{
+                user.username
+              }}</RouterLink>
+            </li>
+            <div class="live">
+              <li>
+                <a
+                  href="https://www.youtube.com/embed/O69fRhzbHn8"
+                  target="_blank"
+                >
+                  <button>Sala ao-vivo</button>
+                </a>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
       <div class="logo">
         <a href="/">
           <img src="../assets/shallusa.png" alt="" />
@@ -53,23 +77,43 @@ export default {
           <a href="/">
             <li class="desk">Home</li>
           </a>
-          <a href="/faq">
-            <li class="desk">Duvidas Frequentes</li>
-          </a>
+          <li v-if="is_superuser == true">
+            <RouterLink class="desk" to="/newindice">Indice</RouterLink>
+          </li>
+          <li v-if="is_superuser == true">
+            <RouterLink class="desk" to="/newdolar">Dolar</RouterLink>
+          </li>
+          <li v-if="is_superuser == true">
+            <RouterLink class="desk" to="/newacoes">Ações</RouterLink>
+          </li>
+          <li v-if="is_superuser == true">
+            <RouterLink class="desk" to="/faq">SAQadm</RouterLink>
+          </li>
+          <li v-if="is_superuser == false">
+            <RouterLink class="desk" to="/faq">SAQ</RouterLink>
+          </li>
+
           <!-- link da live vindo do backend -->
           <div class="live">
-            <button>Sala ao-vivo</button>
+            <a href="">
+              <button>Sala ao-vivo</button>
+            </a>
           </div>
+
           <!-- link da live vindo do backend -->
         </ul>
       </div>
     </header>
-    <div class="saq">
-      <answer
-        v-for="empreendimento in empreendimentos"
-        :key="empreendimento.id"
-        :empreendimento="empreendimento"
-      />
+    <div class="content">
+      <div class="container">
+        <div class="carrossel">
+          <answer
+            v-for="empreendimento in empreendimentos"
+            :key="empreendimento.id"
+            :empreendimento="empreendimento"
+          />
+        </div>
+      </div>
     </div>
     <footer>
       <div class="container-footer">
@@ -135,3 +179,19 @@ export default {
     </footer>
   </div>
 </template>
+
+<style scoped>
+.header {
+  z-index: 1000;
+}
+
+.container {
+  border-radius: 20px;
+  margin-top: 100px;
+  padding: 2rem;
+  background-color: #111111;
+  width: 1000px;
+  height: 800px;
+  overflow-y: scroll;
+}
+</style>

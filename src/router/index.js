@@ -7,7 +7,6 @@ import Updolar from "../views/updatedolar.vue";
 import NewDolar from "../views/newdolar.vue";
 import NewAcoes from "../views/newacoes.vue";
 import NewIndice from "../views/newindice.vue";
-
 const routes = [
   {
     path: "/",
