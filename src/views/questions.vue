@@ -12,6 +12,7 @@ export default {
       },
       empreendimentos: [],
       empreendimento: {},
+      comentario: {},
     };
   },
   async created() {
@@ -24,6 +25,16 @@ export default {
   },
   computed: {
     ...mapState(useAuthStore, ["id", "username", "is_superuser"]),
+  },
+  methods: {
+    async addComment() {
+      if (this.comentario.texto.trim() === "") {
+        return;
+      }
+      this.comentario.resposta = this.id;
+      await axios.post("http://localhost:8000/saq/", this.comentario);
+      await this.getAllComments();
+    },
   },
 };
 </script>
@@ -58,7 +69,8 @@ export default {
               <li>
                 <a
                   href="https://www.youtube.com/embed/O69fRhzbHn8"
-                  target="_blank">
+                  target="_blank"
+                >
                   <button>Sala ao-vivo</button>
                 </a>
               </li>
@@ -67,15 +79,15 @@ export default {
         </div>
       </div>
       <div class="logo">
-        <a href="/">
+        <RouterLink to="/">
           <img src="../assets/shallusa.png" alt="" />
-        </a>
+        </RouterLink>
       </div>
       <div class="list">
         <ul class="links">
-          <a href="/">
-            <li class="desk">Home</li>
-          </a>
+          <li v-if="is_superuser == false">
+            <RouterLink class="desk" to="/">Home</RouterLink>
+          </li>
           <li v-if="is_superuser == true">
             <RouterLink class="desk" to="/newindice">Indice</RouterLink>
           </li>
@@ -109,21 +121,37 @@ export default {
           <answer
             v-for="empreendimento in empreendimentos"
             :key="empreendimento.id"
-            :empreendimento="empreendimento" />
+            :empreendimento="empreendimento"
+          />
         </div>
-        <div class="input-control">
-          <div class="controls">
+        <div class="input-control" v-bind="superuser">
+          <div class="controls" v-if="is_superuser == true">
             <div class="top">
               <span>Tópico:</span>
-              <input type="text" placeholder="Digite um Tópico" />
+              <input
+                @keydown.enter="submitLogin()"
+                v-model="comentario.topico"
+                type="text"
+                placeholder="Digite um Tópico"
+              />
             </div>
             <div class="pergunta">
               <span>Pergunta:</span>
-              <input type="text" placeholder="Digite a Pergunta" />
+              <input
+                @keydown.enter="submitLogin()"
+                v-model="comentario.pergunta"
+                type="text"
+                placeholder="Digite a Pergunta"
+              />
             </div>
             <div class="reposta">
               <span>Resposta:</span>
-              <input type="text" placeholder="Digite uma Resposta" />
+              <input
+                @keydown.enter="submitLogin()"
+                v-model="comentario.texto"
+                type="text"
+                placeholder="Digite uma Resposta"
+              />
             </div>
           </div>
         </div>
@@ -178,7 +206,8 @@ export default {
             <div class="medias-socias">
               <a
                 href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank">
+                target="_blank"
+              >
                 <i class="fa fa-youtube"></i>
               </a>
               <a href="https://www.instagram.com/shallusa01/" target="_blank">
@@ -205,6 +234,7 @@ input {
   border-radius: 0.5rem;
   outline: 0;
   padding: 10px;
+  color: #555555;
 }
 
 span {

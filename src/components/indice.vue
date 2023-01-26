@@ -142,8 +142,6 @@ export default {
   justify-content: center;
   flex-direction: column;
   margin-bottom: 2rem;
-  height: 600px;
-  width: 400px;
   background-color: #000000;
 }
 

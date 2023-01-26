@@ -87,9 +87,9 @@ export default {
         </div>
       </div>
       <div class="logo">
-        <a href="/">
+        <RouterLink to="/">
           <img src="../assets/shallusa.png" alt="" />
-        </a>
+        </RouterLink>
       </div>
       <div class="list">
         <ul class="links">

@@ -7,6 +7,7 @@
 }
 
 .logo img {
+  margin-left: 2rem;
   margin: 0;
   display: flex;
   align-items: center;
@@ -357,6 +358,7 @@ footer {
   cursor: pointer;
   margin-left: 15px;
   width: 100px;
+  height: 20px;
   color: #87c8e0;
   background-color: #000000;
   border: solid 1px #87c8e0;

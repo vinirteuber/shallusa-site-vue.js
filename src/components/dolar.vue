@@ -134,9 +134,10 @@ export default {
   letter-spacing: 1px;
 }
 .cards {
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 1rem;
-  flex-wrap: wrap;
   display: flex;
   align-items: center;
 }
@@ -158,10 +159,9 @@ export default {
   padding: 10px;
   display: flex;
   align-items: center;
+
   justify-content: center;
   flex-direction: column;
-  height: 600px;
-  width: 400px;
   background-color: #000000;
 }
 
@@ -177,7 +177,22 @@ iframe {
 
 .title h1 {
   margin-top: 1rem;
-  color: #555555;
+  color: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
   margin-bottom: 1rem;
 }
 </style>
