@@ -50,19 +50,19 @@ export default {
     <div class="menu1">
       <div class="infos">
         <div class="camps">
-          <div class="nome">
+          <div class="titulo">
             <h1>Titulo:</h1>
             <span> {{ empreendimento.titulo }} </span>
           </div>
-          <div class="peso">
+          <div class="descricao">
             <h1>Descricao:</h1>
             <span>{{ empreendimento.descricao }}</span>
           </div>
-          <div class="altura">
+          <div class="link">
             <h1>Link:</h1>
             <span> {{ empreendimento.link }}</span>
           </div>
-          <div class="Descrição">
+          <div class="curso">
             <h1>Curso:</h1>
             <span> {{ empreendimento.curso }}</span>
           </div>
@@ -72,10 +72,11 @@ export default {
                 <i class="fa-solid fa-trash"></i>Remover Dolar
               </button>
             </div>
-            <div class="alterarCachorro" v-bind="superuser">
+            <div class="alterar" v-bind="superuser">
               <RouterLink :to="`/updatedolar/${this.id}`">
                 <button v-if="is_superuser == true" @click="alterarCao">
-                  Alterar dolar
+                  <i class="fa-regular fa-pen-to-square"></i>
+                  Alterar Dolar
                 </button></RouterLink
               >
             </div>
@@ -87,6 +88,15 @@ export default {
 </template>
 
 <style scoped>
+span {
+  font-family: "League Spartan";
+}
+.camps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .remove button {
   margin-bottom: 10px;
   border-radius: 8px;
@@ -101,7 +111,7 @@ export default {
   justify-content: center;
   display: flex;
 }
-.alterarCachorro button {
+.alterar button {
   margin-bottom: 10px;
   border-radius: 8px;
   height: 50px;
@@ -118,100 +128,86 @@ i {
   font-size: 18pt;
   margin-right: 10px;
 }
-.button {
-  margin-left: 350px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  width: 300px;
-  height: 60px;
-  background-color: #128c7e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 span {
   margin-left: 10px;
   margin-top: 14px;
 }
-.Descrição,
-.Responsável,
-.Telefone {
-  display: flex;
-}
-#main-banner {
-  border-radius: 30px 30px 0 0;
-  width: 1000px;
-  height: 330px;
-  overflow: hidden;
-  background: linear-gradient(rgb(0, 102, 255), rgb(0, 214, 221));
-}
-#main-banner img {
-  margin-top: 10px;
-  width: 300px;
-  border-radius: 200px;
-  border: 6px solid #eef;
-}
+
 .menu1 {
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 600px;
   border-radius: 30px;
-  box-shadow: 7px 7px 13px 0px rgba(226, 226, 226, 0.22);
-  background-color: #161e35;
-  width: 1000px;
+  background-color: #111111;
   color: #f7f7f7;
   text-align: center;
 }
-.menu1 img {
-  border-radius: 25px 25px 0 0;
-  margin-right: 15px;
-  height: 300px;
-  width: 800px;
-  margin-bottom: 3rem;
-}
-.camps {
-  margin-top: 10px;
-  margin-left: 10px;
-}
-.nome {
-  display: flex;
-}
-.peso {
-  display: flex;
-}
-.altura {
-  display: flex;
-}
-.avatar {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-.avatar img {
-  width: 300px;
-  border-radius: 200px;
-  border: 6px solid #eef;
-}
+
 .all {
-  width: 100vw;
-  height: 100vh;
+  background: #333333;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 .container {
-  width: 50%;
-  height: 60%;
+  height: 500px;
   background-color: transparent;
   backdrop-filter: blur(50px);
-  padding: 30px 35px;
   border-radius: 30px;
 }
 .infos h1 {
-  background: -webkit-linear-gradient(45deg, #8a93e4, #00b7ff, #3071e7);
-  -webkit-background-clip: text;
+  font-size: 26pt;
+  font-family: "League Spartan", sans-serif;
+  text-transform: uppercase;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  height: 60px;
+  font-weight: 600;
+  color: #000000;
   -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 .infos span {
   color: #eef;
+}
+
+.remove {
+  margin-right: 1rem;
+}
+
+.titulo {
+  margin-bottom: 1rem;
+}
+
+.descricao {
+  margin-bottom: 1rem;
+}
+
+.link {
+  margin-bottom: 1rem;
+}
+
+.curso {
+  margin-bottom: 1rem;
 }
 </style>
