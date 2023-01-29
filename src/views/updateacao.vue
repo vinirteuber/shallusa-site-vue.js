@@ -1,16 +1,16 @@
 <script>
-import dolar from "../components/dolar.vue";
+import acao from "../components/acao.vue";
 import axios from "axios";
 import { mapStores, mapState } from "pinia";
 import { useAuthStore } from "../stores/auth";
 export default {
-  components: { dolar },
-  name: "empreendimentos",
-  props: ["id", "empreendimento"],
+  components: { acao },
+  name: "acaos",
+  props: ["id", "acao"],
   data() {
     return {
-      empreendimento: {
-        empreendimento: 0,
+      acao: {
+        acao: 0,
         titulo: "",
         descricao: "",
         link: "",
@@ -22,19 +22,19 @@ export default {
     };
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/dolar/${this.id}/`);
-    this.empreendimentos = res.data;
+    const res = await axios.get(`http://localhost:8000/acoes/${this.id}/`);
+    this.acaos = res.data;
   },
   methods: {
-    async alterarDolar() {
+    async alteraracao() {
       const info = {
-        titulo: this.empreendimento.titulo,
-        descricao: this.empreendimento.descricao,
-        link: this.empreendimento.link,
-        curso: this.empreendimento.curso,
+        titulo: this.acao.titulo,
+        descricao: this.acao.descricao,
+        link: this.acao.link,
+        curso: this.acao.curso,
       };
       try {
-        await axios.patch(`http://localhost:8000/dolar/${this.id}/`, info);
+        await axios.patch(`http://localhost:8000/acao/${this.id}/`, info);
         alert("Alterado com sucesso!");
         this.$router.push("/");
       } catch {
@@ -45,7 +45,7 @@ export default {
   computed: {
     ...mapStores(useAuthStore),
     ...mapState(useAuthStore, [
-      "empreendimentos",
+      "acaos",
       "username",
       "email",
       "id",
@@ -65,7 +65,7 @@ export default {
           <div class="container">
             <div class="form-header">
               <div class="title">
-                <h1>Altere o(a) {{ empreendimento.titulo }}:</h1>
+                <h1>Altere o(a) {{ acao.titulo }}:</h1>
               </div>
             </div>
 
@@ -73,53 +73,53 @@ export default {
               <div class="input-box">
                 <label for="firstname">Nome do curso</label>
                 <input
-                  @keydown.enter="alterarDolar()"
+                  @keydown.enter="alteraracao()"
                   id="titulo"
                   type="text"
                   name="nome"
                   placeholder="nome"
-                  v-model="empreendimento.titulo"
+                  v-model="acao.titulo"
                 />
               </div>
 
               <div class="input-box">
                 <label for="lastname">Descrição</label>
                 <input
-                  @keydown.enter="alterarDolar()"
+                  @keydown.enter="alteraracao()"
                   id="descricao"
                   type="text"
                   name="descricao"
                   placeholder="desc"
-                  v-model="empreendimento.descricao"
+                  v-model="acao.descricao"
                 />
               </div>
 
               <div class="input-box">
                 <label for="email">Link EMBED</label>
                 <input
-                  @keydown.enter="alterarDolar()"
+                  @keydown.enter="alteraracao()"
                   id="link"
                   type="text"
                   name="peso"
                   placeholder="link embed"
-                  v-model="empreendimento.link"
+                  v-model="acao.link"
                 />
               </div>
 
               <div class="input-box">
                 <label for="number">curso</label>
                 <input
-                  @keydown.enter="alterarDolar()"
+                  @keydown.enter="alteraracao()"
                   id="curso"
                   type="text"
                   name="altura"
-                  v-model="empreendimento.curso"
+                  v-model="acao.curso"
                   placeholder="link do curso"
                 />
               </div>
             </div>
             <div class="continue-button">
-              <button @click.prevent="alterarDolar">Altere</button>
+              <button @click.prevent="alteraracao">Altere</button>
             </div>
           </div>
         </form>

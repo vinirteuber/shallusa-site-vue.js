@@ -7,12 +7,18 @@
 }
 
 .logo img {
-  margin-left: 2rem;
+  margin-left: 3rem;
   margin: 0;
   display: flex;
   align-items: center;
   width: 300px;
 }
+
+/* .warp {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+} */
 
 a {
   color: inherit;
@@ -328,7 +334,6 @@ footer {
   color: #87c8e0;
   margin-bottom: 20px;
   font-weight: 500;
-  position: relative;
   text-transform: uppercase;
 }
 .footer-col ul {
@@ -358,11 +363,10 @@ footer {
   cursor: pointer;
   margin-left: 15px;
   width: 100px;
-  height: 20px;
   color: #87c8e0;
   background-color: #000000;
   border: solid 1px #87c8e0;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 .live button:hover {
   color: #000000;

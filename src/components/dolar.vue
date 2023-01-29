@@ -9,8 +9,8 @@ export default {
   user: {
     username: "",
   },
-  Empreendimentos: {
-    Empreendimento: 0,
+  empreendimentos: {
+    empreendimento: 0,
   },
   methods: {
     async getAllEmpreendimentos(id) {
@@ -20,7 +20,7 @@ export default {
   },
   async created() {
     const res = await axios.get(`http://localhost:8000/dolar/${this.id}/`);
-    this.Empreendimento = res.data;
+    this.empreendimento = res.data;
     const des = await axios.get(`http://localhost:8000/usuario/${this.id}/`);
     this.user = des.data;
     console.log(this.user);
@@ -37,34 +37,32 @@ export default {
 };
 </script>
 <template>
-  <div class="cards" v-bind="superuser">
-    <div class="card-video">
-      <div class="title">
-        <h1>{{ empreendimento.titulo }}</h1>
-      </div>
-      <div class="desc">
-        <span>{{ empreendimento.descricao }}</span>
-      </div>
-      <div class="video">
-        <iframe :src="empreendimento.link"> </iframe>
-      </div>
-      <div class="admin">
-        <div class="delete">
-          <RouterLink :to="`/delete/${empreendimento.id}`">
-            <button v-if="is_superuser == true">Deletar</button></RouterLink
+  <div class="warp">
+    <div class="cards" v-bind="superuser">
+      <div class="card-video">
+        <div class="title">
+          <h1>{{ empreendimento.titulo }}</h1>
+        </div>
+        <div class="desc">
+          <span>{{ empreendimento.descricao }}</span>
+        </div>
+        <div class="video">
+          <iframe :src="empreendimento.link"> </iframe>
+        </div>
+        <div class="admin">
+          <div class="update">
+            <RouterLink :to="`/especificacoes/${empreendimento.id}`">
+              <button v-if="is_superuser == true">Editar</button></RouterLink
+            >
+          </div>
+        </div>
+        <div class="clicks">
+          <a target="_blank" :href="empreendimento.curso">
+            <div class="button-dolar">
+              <button>Saiba Mais</button>
+            </div></a
           >
         </div>
-        <div class="update">
-          <RouterLink :to="`/updatedolar/${empreendimento.id}`">
-            <button v-if="is_superuser == true">Editar</button></RouterLink
-          >
-        </div>
-      </div>
-      <div class="button-dolar">
-        <button>Saiba Mais</button>
-      </div>
-      <div class="comprar">
-        <a :href="empreendimento.curso" target="_blank"> Adquirir este curso</a>
       </div>
     </div>
   </div>
@@ -73,6 +71,15 @@ export default {
 <style scoped>
 .comprar {
   margin-top: 20px;
+}
+
+.clicks {
+  width: 300px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .admin {
@@ -104,6 +111,7 @@ export default {
 }
 
 .button-dolar button {
+  margin-top: 10px;
   cursor: pointer;
   width: 250px;
   background: radial-gradient(
@@ -129,6 +137,14 @@ export default {
   color: #000000;
 }
 
+.desc {
+  height: 500px;
+}
+
+.title {
+  height: 90px;
+}
+
 .button-dolar button:hover {
   transition: 0.5s;
   letter-spacing: 1px;
@@ -137,7 +153,6 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 1rem;
   display: flex;
   align-items: center;
 }
@@ -159,7 +174,8 @@ export default {
   padding: 10px;
   display: flex;
   align-items: center;
-
+  width: 400px;
+  height: 750px;
   justify-content: center;
   flex-direction: column;
   background-color: #000000;
@@ -176,8 +192,9 @@ iframe {
 }
 
 .title h1 {
-  margin-top: 1rem;
-  color: radial-gradient(
+  font-family: "League Spartan", sans-serif;
+  text-transform: uppercase;
+  background: radial-gradient(
       ellipse farthest-corner at right bottom,
       #fedb37 0%,
       #fdb931 8%,
@@ -193,6 +210,8 @@ iframe {
       #5d4a1f 62.5%,
       #5d4a1f 100%
     );
-  margin-bottom: 1rem;
+  color: #000000;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 </style>

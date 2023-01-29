@@ -40,18 +40,18 @@ export default {
         <a :href="acao.link" target="_blank"> </a>
       </div>
       <div class="admin">
-        <div class="delete">
-          <button v-if="is_superuser == true">Deletar</button>
-        </div>
         <div class="update">
-          <button v-if="is_superuser == true">Editar</button>
+          <RouterLink :to="`/especificacoesac/${acao.id}`">
+            <button v-if="is_superuser == true">Editar</button></RouterLink
+          >
         </div>
       </div>
-      <div class="button-dolar">
-        <button>Saiba Mais</button>
-      </div>
-      <div class="comprar">
-        <a :href="acao.curso" target="_blank"> Adquirir este curso</a>
+      <div class="clicks">
+        <a target="_blank" :href="acao.curso">
+          <div class="button-dolar">
+            <button>Saiba Mais</button>
+          </div></a
+        >
       </div>
     </div>
   </div>

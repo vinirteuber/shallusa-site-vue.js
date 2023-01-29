@@ -30,30 +30,32 @@ export default {
 };
 </script>
 <template>
-  <div class="indice" v-bind="superuser">
-    <div class="card-video">
-      <div class="title">
-        <h1>{{ indice.titulo }}</h1>
-      </div>
-      <div class="desc">
-        <span>{{ indice.descricao }}</span>
-      </div>
-      <div class="video">
-        <iframe :src="indice.link"> </iframe>
-      </div>
-      <div class="admin">
-        <div class="delete">
-          <button v-if="is_superuser == true">Deletar</button>
+  <div class="warp">
+    <div class="cards" v-bind="superuser">
+      <div class="card-video">
+        <div class="title">
+          <h1>{{ indice.titulo }}</h1>
         </div>
-        <div class="update">
-          <button v-if="is_superuser == true">Editar</button>
+        <div class="desc">
+          <span>{{ indice.descricao }}</span>
         </div>
-      </div>
-      <div class="button-dolar">
-        <button>Saiba Mais</button>
-      </div>
-      <div class="comprar">
-        <a :href="indice.curso" target="_blank"> Adquirir este curso</a>
+        <div class="video">
+          <iframe :src="indice.link"> </iframe>
+        </div>
+        <div class="admin">
+          <div class="update">
+            <RouterLink :to="`/especificacoesin/${indice.id}`">
+              <button v-if="is_superuser == true">Editar</button></RouterLink
+            >
+          </div>
+        </div>
+        <div class="clicks">
+          <a target="_blank" :href="indice.curso">
+            <div class="button-dolar">
+              <button>Saiba Mais</button>
+            </div></a
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -62,6 +64,15 @@ export default {
 <style scoped>
 .comprar {
   margin-top: 20px;
+}
+
+.clicks {
+  width: 300px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .admin {
@@ -91,7 +102,9 @@ export default {
   font-weight: 600;
   color: #000000;
 }
+
 .button-dolar button {
+  margin-top: 10px;
   cursor: pointer;
   width: 250px;
   background: radial-gradient(
@@ -117,12 +130,27 @@ export default {
   color: #000000;
 }
 
-.button-dolar button:hover {
-  transition: 0.5s;
-  letter-spacing: 2px;
+.desc {
+  height: 500px;
 }
 
+.title {
+  height: 90px;
+}
+
+.button-dolar button:hover {
+  transition: 0.5s;
+  letter-spacing: 1px;
+}
 .cards {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.indice {
   justify-content: space-between;
   margin: 1rem;
   flex-wrap: wrap;
@@ -131,17 +159,18 @@ export default {
 }
 
 .card-video {
+  justify-content: space-between;
   border: solid 2px #555555;
   color: #eef;
   font-family: "League Spartan", sans-serif;
-
   border-radius: 1rem;
   padding: 10px;
   display: flex;
   align-items: center;
+  width: 400px;
+  height: 750px;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 2rem;
   background-color: #000000;
 }
 
@@ -150,25 +179,32 @@ iframe {
   height: 300px;
   width: 380px;
 }
-.btn button {
-  text-transform: uppercase;
-  color: #000000;
-  background-color: #555555;
-  margin-bottom: 1rem;
-  font-size: 16pt;
-  border-radius: 1rem;
-  margin-top: 10px;
-  height: 50px;
-  width: 250px;
-}
 
 .sub-title span {
   padding: 1rem;
 }
 
 .title h1 {
-  margin-top: 1rem;
-  color: #555555;
-  margin-bottom: 1rem;
+  font-family: "League Spartan", sans-serif;
+  text-transform: uppercase;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  color: #000000;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 </style>

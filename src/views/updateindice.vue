@@ -1,16 +1,16 @@
 <script>
-import dolar from "../components/dolar.vue";
+import indice from "../components/indice.vue";
 import axios from "axios";
 import { mapStores, mapState } from "pinia";
 import { useAuthStore } from "../stores/auth";
 export default {
-  components: { dolar },
-  name: "empreendimentos",
-  props: ["id", "empreendimento"],
+  components: { indice },
+  name: "indices",
+  props: ["id", "indice"],
   data() {
     return {
-      empreendimento: {
-        empreendimento: 0,
+      indice: {
+        indice: 0,
         titulo: "",
         descricao: "",
         link: "",
@@ -22,19 +22,19 @@ export default {
     };
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/dolar/${this.id}/`);
-    this.empreendimentos = res.data;
+    const res = await axios.get(`http://localhost:8000/indice/${this.id}/`);
+    this.indices = res.data;
   },
   methods: {
     async alterarDolar() {
       const info = {
-        titulo: this.empreendimento.titulo,
-        descricao: this.empreendimento.descricao,
-        link: this.empreendimento.link,
-        curso: this.empreendimento.curso,
+        titulo: this.indice.titulo,
+        descricao: this.indice.descricao,
+        link: this.indice.link,
+        curso: this.indice.curso,
       };
       try {
-        await axios.patch(`http://localhost:8000/dolar/${this.id}/`, info);
+        await axios.patch(`http://localhost:8000/indice/${this.id}/`, info);
         alert("Alterado com sucesso!");
         this.$router.push("/");
       } catch {
@@ -45,7 +45,7 @@ export default {
   computed: {
     ...mapStores(useAuthStore),
     ...mapState(useAuthStore, [
-      "empreendimentos",
+      "indices",
       "username",
       "email",
       "id",
@@ -65,7 +65,7 @@ export default {
           <div class="container">
             <div class="form-header">
               <div class="title">
-                <h1>Altere o(a) {{ empreendimento.titulo }}:</h1>
+                <h1>Altere o(a) {{ indice.titulo }}:</h1>
               </div>
             </div>
 
@@ -78,7 +78,7 @@ export default {
                   type="text"
                   name="nome"
                   placeholder="nome"
-                  v-model="empreendimento.titulo"
+                  v-model="indice.titulo"
                 />
               </div>
 
@@ -90,7 +90,7 @@ export default {
                   type="text"
                   name="descricao"
                   placeholder="desc"
-                  v-model="empreendimento.descricao"
+                  v-model="indice.descricao"
                 />
               </div>
 
@@ -102,7 +102,7 @@ export default {
                   type="text"
                   name="peso"
                   placeholder="link embed"
-                  v-model="empreendimento.link"
+                  v-model="indice.link"
                 />
               </div>
 
@@ -113,7 +113,7 @@ export default {
                   id="curso"
                   type="text"
                   name="altura"
-                  v-model="empreendimento.curso"
+                  v-model="indice.curso"
                   placeholder="link do curso"
                 />
               </div>

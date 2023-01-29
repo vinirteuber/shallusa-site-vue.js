@@ -14,11 +14,8 @@ export default {
       },
       superuser: "",
       empreendimentos: [],
-      empreendimento: {},
       indices: [],
-      indice: {},
       acoes: [],
-      acao: {},
     };
   },
   async created() {
@@ -57,21 +54,46 @@ export default {
           </label>
 
           <ul class="menu__box">
-            <li><RouterLink class="menu__item" to="/">Home</RouterLink></li>
-            <li>
-              <RouterLink class="menu__item" to="/faq"
-                >Duvidas Frequentes</RouterLink
-              >
-            </li>
-            <li v-if="is_superuser == false">
-              <RouterLink class="menu__item" to="/sobrenos"
-                >Sobre nós</RouterLink
+            <li></li>
+            <li v-if="is_superuser == true">
+              <RouterLink class="menu__item" to="/newindice"
+                >NewIndice</RouterLink
               >
             </li>
             <li v-if="is_superuser == true">
-              <RouterLink class="menu__item" to="/dolar">{{
-                user.username
-              }}</RouterLink>
+              <RouterLink class="menu__item" to="/newdolar"
+                >NewDolar</RouterLink
+              >
+            </li>
+            <li v-if="is_superuser == true">
+              <RouterLink class="menu__item" to="/newacoes"
+                >NewAções</RouterLink
+              >
+            </li>
+
+            <li v-if="is_superuser == false">
+              <a
+                class="menu__item"
+                href="https://wa.me/557599455633"
+                target="_blank"
+                >SAQ</a
+              >
+            </li>
+            <li v-if="is_superuser == false">
+              <a
+                class="menu__item"
+                href="https://www.nelogica.com.br/produtos/modulos-opcionais?modulo=estrategias&id=6932"
+                target="_blank"
+                >Obter o curso</a
+              >
+            </li>
+            <li v-if="is_superuser == false">
+              <RouterLink class="menu__item" to="/">Sala ao-vivo</RouterLink>
+            </li>
+            <li v-if="is_superuser == true">
+              <RouterLink class="menu__item" to="/"
+                >Bem-Vindo {{ user.username }} !</RouterLink
+              >
             </li>
             <div class="live">
               <li>
@@ -93,9 +115,6 @@ export default {
       </div>
       <div class="list">
         <ul class="links">
-          <a href="/">
-            <li class="desk">Home</li>
-          </a>
           <li v-if="is_superuser == true">
             <RouterLink class="desk" to="/newindice">Indice</RouterLink>
           </li>
@@ -105,19 +124,26 @@ export default {
           <li v-if="is_superuser == true">
             <RouterLink class="desk" to="/newacoes">Ações</RouterLink>
           </li>
-          <li v-if="is_superuser == true">
-            <RouterLink class="desk" to="/faq">SAQadm</RouterLink>
+          <li v-if="is_superuser == false">
+            <a class="desk" href="https://wa.me/557599455633" target="_blank"
+              >SAQ</a
+            >
           </li>
           <li v-if="is_superuser == false">
-            <RouterLink class="desk" to="/faq">SAQ</RouterLink>
+            <a
+              class="desk"
+              href="https://www.nelogica.com.br/produtos/modulos-opcionais?modulo=estrategias&id=6932"
+              target="_blank"
+              >Obter o curso</a
+            >
           </li>
-
-          <!-- link da live vindo do backend -->
           <div class="live">
             <a href="">
               <button>Sala ao-vivo</button>
             </a>
           </div>
+
+          <!-- link da live vindo do backend -->
 
           <!-- link da live vindo do backend -->
         </ul>
@@ -130,20 +156,28 @@ export default {
           alt="banner"
         />
       </div>
-
-      <h1>INVESTIMENTOS DOLAR</h1>
-      <div class="cards">
+      <div class="title-card">
+        <h1>INVESTIMENTOS DOLAR</h1>
+      </div>
+      <div class="cards-ini">
         <dolar
           v-for="empreendimento in empreendimentos"
           :key="empreendimento.id"
           :empreendimento="empreendimento"
         />
       </div>
-      <h1>INVESTIMENTOS INDICE</h1>
-      <div class="indice">
-        <indice v-for="indice in indices" :key="indice.id" :indice="indice" />
+      <div class="title-card">
+        <h1>INVESTIMENTOS INDICE</h1>
       </div>
-      <h1>INVESTIMENTOS AÇOES</h1>
+      <div class="cards-two">
+        <div class="indice">
+          <indice v-for="indice in indices" :key="indice.id" :indice="indice" />
+        </div>
+      </div>
+      <h1>
+        <!-- INVESTIMENTOS AÇOES <br />
+        (Em breve) -->
+      </h1>
       <div class="acoes">
         <acoes v-for="acao in acoes" :key="acao.id" :acao="acao" />
       </div>
@@ -158,8 +192,8 @@ export default {
               <li><a href="#">Quem somos </a></li>
             </ul>
           </div>
-          <!--end footer col-->
-          <!-- footer col-->
+          <!--end footer-col col-->
+          <!-- footer-col col-->
           <div class="footer-col">
             <h4>Obter ajuda</h4>
             <ul>
@@ -175,8 +209,8 @@ export default {
               </li>
             </ul>
           </div>
-          <!--end footer col-->
-          <!-- footer col-->
+          <!--end footer-col col-->
+          <!-- footer-col col-->
           <div class="footer-col">
             <h4>Entre em contato</h4>
             <ul>
@@ -188,8 +222,8 @@ export default {
               <li><a href="mailto:Ulyssesbarcelos@gmail.com">Email</a></li>
             </ul>
           </div>
-          <!--end footer col-->
-          <!-- footer col-->
+          <!--end footer-col col-->
+          <!-- footer-col col-->
           <div class="footer-col">
             <h4>Siga nos!</h4>
             <div class="form-sub"></div>
@@ -214,6 +248,45 @@ export default {
 </template>
 
 <style scoped>
+.title-card h1 {
+  margin-top: 40px;
+  font-family: "League Spartan", sans-serif;
+  text-transform: uppercase;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  height: 60px;
+  font-weight: 600;
+  color: #000000;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.cards-ini {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards-two {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 h1 {
   font-family: "League Spartan", sans-serif;
   color: #888888;
