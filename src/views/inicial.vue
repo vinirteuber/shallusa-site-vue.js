@@ -282,6 +282,9 @@ export default {
   flex-wrap: wrap;
 }
 
+.logo img {
+}
+
 .cards-two {
   display: flex;
   flex-wrap: wrap;

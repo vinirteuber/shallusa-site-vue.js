@@ -8,9 +8,7 @@ import NewAcoes from "../views/newacoes.vue";
 import NewIndice from "../views/newindice.vue";
 import updateDolar from "../views/updatedolar.vue";
 import especificacoes from "../views/especificacoes.vue";
-import especificacoesac from "../views/especificacoesac.vue";
 import especificacoesin from "../views/especificacoesin.vue";
-import updateacao from "../views/updateacao.vue";
 import updateindice from "../views/updateindice.vue";
 
 const routes = [
@@ -62,20 +60,8 @@ const routes = [
     component: updateDolar,
   },
   {
-    path: "/especificacoesac/:id",
-    name: "especificacoes",
-    props: true,
-    component: especificacoesac,
-  },
-  {
-    path: "/updateacao/:id",
-    name: "updateacao",
-    props: true,
-    component: updateacao,
-  },
-  {
     path: "/especificacoesin/:id",
-    name: "especificacoes",
+    name: "especificacoesin",
     props: true,
     component: especificacoesin,
   },

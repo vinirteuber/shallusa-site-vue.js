@@ -69,13 +69,13 @@ export default {
           <div class="admin">
             <div class="remove" v-bind="superuser">
               <button v-if="is_superuser == true" @click="removerDolar">
-                <i class="fa-solid fa-trash"></i>Remover dolar
+                <i class="fa-solid fa-trash"></i>Remover Dolar
               </button>
             </div>
             <div class="alterarCachorro" v-bind="superuser">
               <RouterLink :to="`/updatedolar/${this.id}`">
                 <button v-if="is_superuser == true" @click="alterarCao">
-                  Alterar Dolar
+                  Alterar dolar
                 </button></RouterLink
               >
             </div>
@@ -200,11 +200,11 @@ span {
 }
 .container {
   width: 50%;
+  height: 60%;
   background-color: transparent;
   backdrop-filter: blur(50px);
   padding: 30px 35px;
   border-radius: 30px;
-  box-shadow: 0px 5px 30px rgb(2, 48, 85);
 }
 .infos h1 {
   background: -webkit-linear-gradient(45deg, #8a93e4, #00b7ff, #3071e7);

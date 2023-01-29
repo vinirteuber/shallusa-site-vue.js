@@ -65,25 +65,26 @@ export default {
           <div class="container">
             <div class="form-header">
               <div class="title">
-                <h1>Altere o(a) {{ indice.titulo }}:</h1>
+                <h1>Alterar para: {{ indice.titulo }}</h1>
               </div>
             </div>
 
             <div class="input-group">
               <div class="input-box">
-                <label for="firstname">Nome do curso</label>
+                <label for="firstname">titulo:</label>
                 <input
                   @keydown.enter="alterarDolar()"
                   id="titulo"
                   type="text"
-                  name="nome"
-                  placeholder="nome"
+                  name="titulo"
+                  placeholder="titulo"
                   v-model="indice.titulo"
+                  required
                 />
               </div>
 
               <div class="input-box">
-                <label for="lastname">Descrição</label>
+                <label for="lastname">Descrição:</label>
                 <input
                   @keydown.enter="alterarDolar()"
                   id="descricao"
@@ -91,35 +92,38 @@ export default {
                   name="descricao"
                   placeholder="desc"
                   v-model="indice.descricao"
+                  required
                 />
               </div>
 
               <div class="input-box">
-                <label for="email">Link EMBED</label>
+                <label for="email">Link youtube (embed)</label>
                 <input
                   @keydown.enter="alterarDolar()"
                   id="link"
                   type="text"
-                  name="peso"
-                  placeholder="link embed"
+                  name="link"
+                  placeholder="link"
                   v-model="indice.link"
+                  required
                 />
               </div>
-
               <div class="input-box">
-                <label for="number">curso</label>
+                <label for="email">Link comprar curso</label>
                 <input
                   @keydown.enter="alterarDolar()"
-                  id="curso"
+                  id="link"
                   type="text"
-                  name="altura"
+                  name="link"
+                  placeholder="link"
                   v-model="indice.curso"
-                  placeholder="link do curso"
+                  required
                 />
               </div>
             </div>
+
             <div class="continue-button">
-              <button @click.prevent="alterarDolar">Altere</button>
+              <button @click.prevent="alterarDolar">Alterar</button>
             </div>
           </div>
         </form>
@@ -129,40 +133,127 @@ export default {
 </template>
 
 <style scoped>
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title h1 {
+  font-size: 24pt;
+}
+
+.continue-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  border-radius: 2rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #111111;
+}
+
+.input-box {
+  margin-left: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.outer {
+  background-color: #333333;
+}
 input {
-  width: 350px;
+  font-family: "Poppins", sans-serif;
+  width: 450px;
   height: 40px;
   margin-top: 1rem;
-  background-color: #161e35;
-  border-radius: 6px;
+  border: 3px solid #242424;
+  background-color: #111111;
+  border-radius: 18px;
   color: #fff;
   outline: none;
   padding: 3% 5%;
 }
-h1 {
+
+label {
+  font-weight: 700;
   text-transform: uppercase;
-  background: -webkit-linear-gradient(45deg, #8a93e4, #00b7ff, #3071e7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: "Poppins", sans-serif;
 }
+
+main {
+  padding: 0;
+}
+
+h1 {
+  font-family: "League Spartan", sans-serif;
+  text-transform: uppercase;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  height: 60px;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #000000;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
 .user-email {
   color: #eef;
 }
-button {
-  background: linear-gradient(to right, #0419d6, #00b7ff);
-  color: #fff;
-  width: 450px;
-  height: 40px;
-  border-radius: 40px;
-  margin-top: 20px;
+
+.continue-button button {
+  margin-top: 2rem;
   cursor: pointer;
+  width: 350px;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffff 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  border-radius: 200px;
+  height: 60px;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #000000;
 }
-button:hover {
-  background: linear-gradient(to right, rgb(230, 108, 169), #970584);
-  color: #fff;
-  height: 40px;
-  border-radius: 40px;
+
+.continue-button button:hover {
+  transition: 0.5s;
+  letter-spacing: 5px;
 }
+
 span {
   color: #eef;
 }
@@ -197,20 +288,12 @@ label {
   z-index: 0;
 }
 .outer {
+  padding: 4rem;
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.container {
-  width: 20rem;
-  border-radius: 20px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 .avatar img {
   width: 300px;

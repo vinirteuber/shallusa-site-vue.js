@@ -22,7 +22,7 @@ export default {
     async getAllacoes(id) {
       await this.$get(
         `especificacoesin/indice/${id}/`,
-        this.especificacoes.indices
+        this.especificacoesin.indices
       );
     },
     async removerDolar() {
@@ -30,9 +30,9 @@ export default {
       alert("indice deletado com sucesso!"), this.$router.push("/");
     },
     async postEspecificacoes() {
-      this.especificacoes.indices = this.$route.params.id;
-      await this.$post("indice/", this.especificacoes);
-      await this.getAllEspecificacoes();
+      this.especificacoesin.indices = this.$route.params.id;
+      await this.$post("indice/", this.especificacoesin);
+      await this.getAllEspecificacoesin();
     },
   },
   async created() {
