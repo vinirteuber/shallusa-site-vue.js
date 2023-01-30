@@ -150,7 +150,7 @@ export default {
     </header>
     <div class="content">
       <div class="carrossel">
-        <img src="../assets/banner.jpeg" alt="banner" />
+        <img src="../assets/banner.png" alt="banner" />
       </div>
       <div class="title-card">
         <h1>INVESTIMENTOS DOLAR</h1>
