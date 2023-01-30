@@ -99,8 +99,7 @@ export default {
               <li>
                 <a
                   href="https://www.youtube.com/embed/O69fRhzbHn8"
-                  target="_blank"
-                >
+                  target="_blank">
                   <button>Sala ao-vivo</button>
                 </a>
               </li>
@@ -151,10 +150,7 @@ export default {
     </header>
     <div class="content">
       <div class="carrossel">
-        <img
-          src="../assets/WhatsApp Image 2023-01-23 at 12.55.30.jpeg"
-          alt="banner"
-        />
+        <img src="../assets/banner.jpeg" alt="banner" />
       </div>
       <div class="title-card">
         <h1>INVESTIMENTOS DOLAR</h1>
@@ -163,8 +159,7 @@ export default {
         <dolar
           v-for="empreendimento in empreendimentos"
           :key="empreendimento.id"
-          :empreendimento="empreendimento"
-        />
+          :empreendimento="empreendimento" />
       </div>
       <div class="title-card">
         <h1>INVESTIMENTOS INDICE</h1>
@@ -231,8 +226,7 @@ export default {
             <div class="medias-socias">
               <a
                 href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank"
-              >
+                target="_blank">
                 <i class="fa fa-youtube"></i>
               </a>
               <a href="https://www.instagram.com/shallusa01/" target="_blank">
