@@ -170,25 +170,30 @@ export default {
 }
 
 .card-video {
+  margin-bottom: 1rem;
   justify-content: space-between;
   border: solid 2px #555555;
   color: #eef;
   font-family: "League Spartan", sans-serif;
   border-radius: 1rem;
-  padding: 10px;
+  padding: 30px;
   display: flex;
   align-items: center;
-  width: 400px;
-  height: 750px;
+  width: 350px;
+  height: 800px;
   justify-content: center;
   flex-direction: column;
   background-color: #000000;
 }
 
+.card-video span {
+  max-width: 330px;
+}
+
 iframe {
   margin-top: 1rem;
   height: 300px;
-  width: 380px;
+  width: 340px;
 }
 
 .sub-title span {
@@ -196,6 +201,7 @@ iframe {
 }
 
 .title h1 {
+  max-width: 320px;
   font-family: "League Spartan", sans-serif;
   text-transform: uppercase;
   background: radial-gradient(
