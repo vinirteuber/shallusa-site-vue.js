@@ -26,7 +26,9 @@ export default {
       );
     },
     async removerDolar() {
-      await axios.delete(`http://localhost:8000/dolar/${this.id}/`);
+      await axios.delete(
+        `https://gustavorteuber.pythonanywhere.com/dolar/${this.id}/`
+      );
       alert("Dolar deletado com sucesso!"), this.$router.push("/");
     },
     async postEspecificacoes() {
@@ -36,7 +38,9 @@ export default {
     },
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/dolar/${this.id}/`);
+    const res = await axios.get(
+      `https://gustavorteuber.pythonanywhere.com/dolar/${this.id}/`
+    );
     this.empreendimento = res.data;
   },
   computed: {

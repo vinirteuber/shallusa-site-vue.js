@@ -12,7 +12,10 @@ export default {
   },
   methods: {
     async submitFile() {
-      await axios.post("http://localhost:8000/dolar/", this.empreendimento);
+      await axios.post(
+        "https://gustavorteuber.pythonanywhere.com/dolar/",
+        this.empreendimento
+      );
       alert("Dolar registrado com sucesso!"), this.$router.push("/");
     },
   },
@@ -46,8 +49,7 @@ export default {
                   name="titulo"
                   placeholder="titulo"
                   v-model="empreendimento.titulo"
-                  required
-                />
+                  required />
               </div>
 
               <div class="input-box">
@@ -59,8 +61,7 @@ export default {
                   name="descricao"
                   placeholder="desc"
                   v-model="empreendimento.descricao"
-                  required
-                />
+                  required />
               </div>
 
               <div class="input-box">
@@ -72,8 +73,7 @@ export default {
                   name="link"
                   placeholder="link"
                   v-model="empreendimento.link"
-                  required
-                />
+                  required />
               </div>
               <div class="input-box">
                 <label for="email">Link comprar curso</label>
@@ -84,8 +84,7 @@ export default {
                   name="link"
                   placeholder="link"
                   v-model="empreendimento.curso"
-                  required
-                />
+                  required />
               </div>
             </div>
 

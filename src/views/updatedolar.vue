@@ -22,7 +22,9 @@ export default {
     };
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/dolar/${this.id}/`);
+    const res = await axios.get(
+      `https://gustavorteuber.pythonanywhere.com/dolar/${this.id}/`
+    );
     this.empreendimentos = res.data;
   },
   methods: {
@@ -34,7 +36,10 @@ export default {
         curso: this.empreendimento.curso,
       };
       try {
-        await axios.patch(`http://localhost:8000/dolar/${this.id}/`, info);
+        await axios.patch(
+          `https://gustavorteuber.pythonanywhere.com/dolar/${this.id}/`,
+          info
+        );
         alert("Alterado com sucesso!");
         this.$router.push("/");
       } catch {
@@ -79,8 +84,7 @@ export default {
                   name="titulo"
                   placeholder="titulo"
                   v-model="empreendimento.titulo"
-                  required
-                />
+                  required />
               </div>
 
               <div class="input-box">
@@ -92,8 +96,7 @@ export default {
                   name="descricao"
                   placeholder="desc"
                   v-model="empreendimento.descricao"
-                  required
-                />
+                  required />
               </div>
 
               <div class="input-box">
@@ -105,8 +108,7 @@ export default {
                   name="link"
                   placeholder="link"
                   v-model="empreendimento.link"
-                  required
-                />
+                  required />
               </div>
               <div class="input-box">
                 <label for="email">Link comprar curso</label>
@@ -117,8 +119,7 @@ export default {
                   name="link"
                   placeholder="link"
                   v-model="empreendimento.curso"
-                  required
-                />
+                  required />
               </div>
             </div>
 

@@ -19,13 +19,21 @@ export default {
     };
   },
   async created() {
-    const empreendimentos = await axios.get("http://localhost:8000/dolar/");
+    const empreendimentos = await axios.get(
+      "https://gustavorteuber.pythonanywhere.com/dolar/"
+    );
     this.empreendimentos = empreendimentos.data;
-    const indices = await axios.get("http://localhost:8000/indice/");
+    const indices = await axios.get(
+      "https://gustavorteuber.pythonanywhere.com/indice/"
+    );
     this.indices = indices.data;
-    const acoes = await axios.get("http://localhost:8000/acoes/");
+    const acoes = await axios.get(
+      "https://gustavorteuber.pythonanywhere.com/acoes/"
+    );
     this.acoes = acoes.data;
-    const res = await axios.get(`http://localhost:8000/usuario/${this.id}/`);
+    const res = await axios.get(
+      `https://gustavorteuber.pythonanywhere.com/usuario/${this.id}/`
+    );
     this.user = res.data;
     console.log(this.user);
   },
@@ -33,11 +41,17 @@ export default {
     ...mapState(useAuthStore, ["id", "username", "is_superuser"]),
   },
   async getAllComments() {
-    const empreendimento = await axios.get("http://localhost:8000/dolar/");
+    const empreendimento = await axios.get(
+      "https://gustavorteuber.pythonanywhere.com/dolar/"
+    );
     this.empreendimento = empreendimento.data;
-    const indice = await axios.get("http://localhost:8000/indice/");
+    const indice = await axios.get(
+      "https://gustavorteuber.pythonanywhere.com/indice/"
+    );
     this.indice = indice.data;
-    const acao = await axios.get("http://localhost:8000/acoes/");
+    const acao = await axios.get(
+      "https://gustavorteuber.pythonanywhere.com/acoes/"
+    );
     this.acao = acao.data;
   },
 };

@@ -12,7 +12,10 @@ export const useAuthStore = defineStore({
   }),
   actions: {
     async login(user) {
-      const { data } = await axios.post("http://localhost:8000/token/", user);
+      const { data } = await axios.post(
+        "https://gustavorteuber.pythonanywhere.com/token/",
+        user
+      );
       this.access = data.access;
       this.username = data.username;
       this.id = data.id;

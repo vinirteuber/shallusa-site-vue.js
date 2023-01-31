@@ -16,7 +16,9 @@ export default {
     },
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/acoes/${this.id}/`);
+    const res = await axios.get(
+      `https://gustavorteuber.pythonanywhere.com/acoes/${this.id}/`
+    );
     this.Acao = res.data;
   },
   computed: {
