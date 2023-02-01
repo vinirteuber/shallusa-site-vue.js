@@ -180,7 +180,7 @@ export default {
   display: flex;
   align-items: center;
   width: 350px;
-  height: 800px;
+  height: 1000px;
   justify-content: center;
   flex-direction: column;
   background-color: #000000;
