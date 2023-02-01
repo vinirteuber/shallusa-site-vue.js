@@ -55,7 +55,7 @@ export default {
         </div>
         <div class="admin">
           <div class="update">
-            <RouterLink :to="`/especificacoes/${empreendimento.id}`">
+            <RouterLink :to="`/especificacoesin/${empreendimento.id}`">
               <button v-if="is_superuser == true">Editar</button></RouterLink
             >
           </div>
@@ -161,7 +161,7 @@ export default {
   align-items: center;
 }
 
-.indice {
+.empreendimento {
   justify-content: space-between;
   margin: 1rem;
   flex-wrap: wrap;
@@ -201,7 +201,6 @@ iframe {
 }
 
 .title h1 {
-  max-width: 320px;
   font-family: "League Spartan", sans-serif;
   text-transform: uppercase;
   background: radial-gradient(
