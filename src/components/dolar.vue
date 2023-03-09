@@ -6,6 +6,11 @@ import { RouterLink } from "vue-router";
 export default {
   name: "empreendimentos",
   props: ["id", "empreendimento"],
+  data() {
+    return {
+      isDropdownOpen: false,
+    };
+  },
   user: {
     username: "",
   },
@@ -17,31 +22,61 @@ export default {
       await this.get(`/dolar/${id}/`, this.empreendimentos);
       console.log(this.empreendimentos);
     },
+    toggleDropdown() {
+      this.dropdownOpen = !this.dropdown;
+    },
+    async created() {
+      const res = await axios.get(
+        `https://gustavorteuber.pythonanywhere.com/dolar/${this.id}/`
+      );
+      this.empreendimento = res.data;
+      const des = await axios.get(
+        `https://gustavorteuber.pythonanywhere.com/usuario/${this.id}/`
+      );
+      this.user = des.data;
+      console.log(this.user);
+    },
+    computed: {
+      ...mapState(useAuthStore, [
+        "empreendimentos",
+        "username",
+        "foto",
+        "is_superuser",
+      ]),
+    },
+    components: { RouterLink },
   },
-  async created() {
-    const res = await axios.get(
-      `https://gustavorteuber.pythonanywhere.com/dolar/${this.id}/`
-    );
-    this.empreendimento = res.data;
-    const des = await axios.get(
-      `https://gustavorteuber.pythonanywhere.com/usuario/${this.id}/`
-    );
-    this.user = des.data;
-    console.log(this.user);
-  },
-  computed: {
-    ...mapState(useAuthStore, [
-      "empreendimentos",
-      "username",
-      "foto",
-      "is_superuser",
-    ]),
-  },
-  components: { RouterLink },
 };
 </script>
 <template>
-  <div class="warp">
+  <div class="p-2">
+    <div class="text-xl" @click="isDropdownOpen = !isDropdownOpen">
+      <img
+        :src="
+          empreendimento.foto.file.replace(
+            'http://localhost:8000',
+            'https://gustavorteuber.pythonanywhere.com'
+          )
+        "
+      />
+    </div>
+    <section v-if="isDropdownOpen" class="overflow-hidden text-white">
+      <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12">
+        <div class="-m-1 flex flex-wrap md:-m-2">
+          <div class="flex flex-wrap">
+            <div class="object-fill">
+              <img
+                alt="gallery"
+                class="block h-full w-full rounded-lg object-cover object-center"
+                src="./4.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- <div class="warp">
     <div class="cards" v-bind="superuser">
       <div class="card-video">
         <div class="title">
@@ -69,7 +104,7 @@ export default {
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>

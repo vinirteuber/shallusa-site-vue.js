@@ -113,7 +113,8 @@ export default {
               <li>
                 <a
                   href="https://www.youtube.com/embed/O69fRhzbHn8"
-                  target="_blank">
+                  target="_blank"
+                >
                   <button>Sala ao-vivo</button>
                 </a>
               </li>
@@ -163,18 +164,29 @@ export default {
       </div>
     </header>
     <div class="content">
-      <div class="carrossel">
-        <img src="../assets/banner.png" alt="banner" />
+      <div class="banner">
+        <div class="m-10"></div>
+        <img src="../assets/1.png" alt="Banner" class="w-full h-auto" />
+        <a href="https://wa.me/557599455633" target="_blank">
+          <img src="../assets/2.png" alt="Banner" class="w-full h-auto" />
+        </a>
+        <img src="../assets/3.png" alt="Banner" class="w-full h-auto" />
+        <div class="cards-ini">
+          <div class="m-7 text-5xl font-bold">
+            ESTRATÉGIAS para o MINI DÓLAR
+          </div>
+          <dolar
+            v-for="empreendimento in empreendimentos"
+            :key="empreendimento.id"
+            :empreendimento="empreendimento"
+          />
+        </div>
+        <img src="../assets/7.png" alt="Banner" class="w-full h-auto" />
+        <img src="../assets/8.png" alt="Banner" class="w-full h-auto" />
+        <img src="../assets/9.png" alt="Banner" class="w-full h-auto" />
+        <img src="../assets/10.png" alt="Banner" class="w-full h-auto" />
       </div>
-      <div class="title-card">
-        <h1>INVESTIMENTOS DOLAR</h1>
-      </div>
-      <div class="cards-ini">
-        <dolar
-          v-for="empreendimento in empreendimentos"
-          :key="empreendimento.id"
-          :empreendimento="empreendimento" />
-      </div>
+
       <div class="title-card">
         <h1>INVESTIMENTOS INDICE</h1>
       </div>
@@ -240,7 +252,8 @@ export default {
             <div class="medias-socias">
               <a
                 href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank">
+                target="_blank"
+              >
                 <i class="fa fa-youtube"></i>
               </a>
               <a href="https://www.instagram.com/shallusa01/" target="_blank">
@@ -291,6 +304,7 @@ export default {
 }
 
 .logo img {
+  margin-left: 1rem;
 }
 
 .cards-two {
