@@ -8,6 +8,7 @@ export default {
   props: ["id", "empreendimento"],
   data() {
     return {
+      isNextImageOpen: false,
       isDropdownOpen: false,
     };
   },
@@ -24,6 +25,12 @@ export default {
     },
     toggleDropdown() {
       this.dropdownOpen = !this.dropdown;
+    },
+    openNextImage() {
+      this.isNextImageOpen = true;
+    },
+    closeNextImage() {
+      this.isNextImageOpen = false;
     },
     async created() {
       const res = await axios.get(
@@ -49,32 +56,83 @@ export default {
 };
 </script>
 <template>
-  <div class="p-2">
-    <div class="text-xl" @click="isDropdownOpen = !isDropdownOpen">
-      <img
-        :src="
-          empreendimento.foto.file.replace(
-            'http://localhost:8000',
-            'https://gustavorteuber.pythonanywhere.com'
-          )
-        "
-      />
+  <div class="p-1">
+    <div
+      class="text-xl transform transition duration-500 ease-in-out hover:translate-x-2 cursor-pointer"
+      @click="isDropdownOpen = !isDropdownOpen"
+    >
+      <div class="flex items-center">
+        <img
+          class="mr-2"
+          :src="
+            empreendimento.foto.file.replace(
+              'http://localhost:8000',
+              'https://gustavorteuber.pythonanywhere.com'
+            )
+          "
+        />
+        <!-- <button
+            type="button"
+            class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500 icon absolute top-0 right-0"
+          > -->
+        <!-- </button> -->
+      </div>
     </div>
-    <section v-if="isDropdownOpen" class="overflow-hidden text-white">
+    <section
+      v-if="isDropdownOpen"
+      class="overflow-hidden text-white transform transition duration-500 ease-in-out"
+    >
       <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12">
         <div class="-m-1 flex flex-wrap md:-m-2">
           <div class="flex flex-wrap">
             <div class="object-fill">
-              <img
-                alt="gallery"
-                class="block h-full w-full rounded-lg object-cover object-center"
-                src="./4.png"
-              />
+              <div class="relative">
+                <img
+                  :src="
+                    empreendimento.foto2.file.replace(
+                      'http://localhost:8000',
+                      'https://gustavorteuber.pythonanywhere.com'
+                    )
+                  "
+                />
+                <button
+                  type="button"
+                  class="absolute bottom-0 right-0 z-10 text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 lg:text-base lg:px-5 lg:py-2.5"
+                  @click="showNextImage"
+                >
+                  <i class="fas fa-cog"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div
+      v-if="isNextImageOpen"
+      class="fixed inset-0 z-50 overflow-auto flex items-center justify-center"
+      style="background-color: rgba(0, 0, 0, 0.5)"
+    >
+      <div class="bg-white p-8 rounded-lg">
+        <button
+          type="button"
+          class="absolute top-0 right-0 z-10 text-black font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mt-2 lg:text-base lg:px-5 lg:py-2.5"
+          @click="closeNextImage"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <img
+          :src="
+            empreendimento.foto3.file.replace(
+              'http://localhost:8000',
+              'https://gustavorteuber.pythonanywhere.com'
+            )
+          "
+          class="max-h-full max-w-full"
+        />
+      </div>
+    </div>
   </div>
   <!-- <div class="warp">
     <div class="cards" v-bind="superuser">

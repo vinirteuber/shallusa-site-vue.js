@@ -88,7 +88,7 @@ export default {
             <li v-if="is_superuser == false">
               <a
                 class="menu__item"
-                href="https://wa.me/557599455633"
+                href="https://wa.me/5571984318965"
                 target="_blank"
                 >SAQ</a
               >
@@ -139,7 +139,7 @@ export default {
             <RouterLink class="desk" to="/newacoes">Ações</RouterLink>
           </li>
           <li v-if="is_superuser == false">
-            <a class="desk" href="https://wa.me/557599455633" target="_blank"
+            <a class="desk" href="https://wa.me/5571984318965" target="_blank"
               >SAQ</a
             >
           </li>
@@ -166,14 +166,47 @@ export default {
     <div class="content">
       <div class="banner">
         <div class="m-10"></div>
-        <img src="../assets/1.png" alt="Banner" class="w-full h-auto" />
-        <a href="https://wa.me/557599455633" target="_blank">
-          <img src="../assets/2.png" alt="Banner" class="w-full h-auto" />
+        <a href="https://wa.me/5571984318965" target="_blank">
+          <img
+            src="../assets/mobile1.png"
+            alt="Banner"
+            class="w-full h-auto block md:hidden"
+        /></a>
+        <a href="https://wa.me/5571984318965" target="_blank">
+          <img
+            src="../assets/1.png"
+            alt="Banner"
+            class="w-full h-auto hidden md:block lg:block"
+        /></a>
+
+        <a href="https://wa.me/5571984318965" target="_blank">
+          <img
+            src="../assets/2.png"
+            alt="Banner"
+            class="w-full h-auto hidden md:block lg:block"
+          />
         </a>
-        <img src="../assets/3.png" alt="Banner" class="w-full h-auto" />
+        <img
+          src="../assets/mobile2.png"
+          alt="Banner"
+          class="w-full h-auto block md:hidden"
+        />
+        <img
+          src="../assets/3.png"
+          alt="Banner"
+          class="w-full h-auto hidden md:block lg:block"
+        />
         <div class="cards-ini">
-          <div class="m-7 text-5xl font-bold">
-            ESTRATÉGIAS para o MINI DÓLAR
+          <div class="m-7 text-5xl font-bold md:text-md font-bold">
+            <h1
+              class="mb-4 text-3xl font-extrabold text-black md:text-5xl lg:text-6xl"
+            >
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-amber-700 via-yellow-400 to-yellow-700"
+                >Estratégias para o</span
+              >
+              <div class="text-black">MINI DÓLAR.</div>
+            </h1>
           </div>
           <dolar
             v-for="empreendimento in empreendimentos"
@@ -181,91 +214,125 @@ export default {
             :empreendimento="empreendimento"
           />
         </div>
-        <img src="../assets/7.png" alt="Banner" class="w-full h-auto" />
-        <img src="../assets/8.png" alt="Banner" class="w-full h-auto" />
-        <img src="../assets/9.png" alt="Banner" class="w-full h-auto" />
-        <img src="../assets/10.png" alt="Banner" class="w-full h-auto" />
+        <a href="https://wa.me/5571984318965" target="_blank">
+          <img
+            src="../assets/mobile3.png"
+            alt="Banner"
+            class="w-full h-auto block md:hidden" />
+          <img
+            src="../assets/7.png"
+            alt="Banner"
+            class="w-full h-auto hidden md:block lg:block"
+        /></a>
+        <img
+          src="../assets/mobile4.png"
+          alt="Banner"
+          class="w-full h-auto block md:hidden"
+        />
+        <img
+          src="../assets/8.png"
+          alt="Banner"
+          class="w-full h-auto hidden md:block lg:block"
+        />
+        <img
+          src="../assets/mobile5.png"
+          alt="Banner"
+          class="w-full h-auto block md:hidden"
+        />
+        <img
+          src="../assets/9.png"
+          alt="Banner"
+          class="w-full h-auto hidden md:block lg:block"
+        />
+        <img
+          src="../assets/mobile6.png"
+          alt="Banner"
+          class="w-full h-auto block md:hidden"
+        />
+        <img
+          src="../assets/10.png"
+          alt="Banner"
+          class="w-full h-auto hidden md:block lg:block"
+        />
       </div>
+    </div>
 
-      <div class="title-card">
+    <!-- <div class="title-card">
         <h1>INVESTIMENTOS INDICE</h1>
-      </div>
-      <div class="cards-two">
+      </div> -->
+    <!-- <div class="cards-two">
         <div class="indice">
           <indice v-for="indice in indices" :key="indice.id" :indice="indice" />
         </div>
-      </div>
-      <h1>
-        <!-- INVESTIMENTOS AÇOES <br />
+      </div> -->
+    <h1>
+      <!-- INVESTIMENTOS AÇOES <br />
         (Em breve) -->
-      </h1>
-      <div class="acoes">
-        <acoes v-for="acao in acoes" :key="acao.id" :acao="acao" />
+    </h1>
+    <div class="acoes">
+      <acoes v-for="acao in acoes" :key="acao.id" :acao="acao" />
+    </div>
+  </div>
+  <footer>
+    <div class="container-footer">
+      <div class="row-footer">
+        <!-- footer col-->
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#">Quem somos </a></li>
+          </ul>
+        </div>
+        <!--end footer-col col-->
+        <!-- footer-col col-->
+        <div class="footer-col">
+          <h4>Obter ajuda</h4>
+          <ul>
+            <li>
+              <a href="https://wa.me/5571984318965" target="_blank">FAQ</a>
+            </li>
+            <li>
+              <a
+                href="https://www.nelogica.com.br/produtos/modulos-opcionais?modulo=estrategias&id=6932"
+                target="_blank"
+                >Obter o curso</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!--end footer-col col-->
+        <!-- footer-col col-->
+        <div class="footer-col">
+          <h4>Entre em contato</h4>
+          <ul>
+            <li>
+              <a href="https://wa.me/5571984318965" target="_blank">Whatsapp</a>
+            </li>
+            <li><a href="mailto:Ulyssesbarcelos@gmail.com">Email</a></li>
+          </ul>
+        </div>
+        <!--end footer-col col-->
+        <!-- footer-col col-->
+        <div class="footer-col">
+          <h4>Siga nos!</h4>
+          <div class="form-sub"></div>
+
+          <div class="medias-socias">
+            <a
+              href="https://www.youtube.com/@ulyssesbarcelos6635"
+              target="_blank"
+            >
+              <i class="fa fa-youtube"></i>
+            </a>
+            <a href="https://www.instagram.com/shallusa01/" target="_blank">
+              <i class="fa fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <!--end footer col-->
       </div>
     </div>
-    <footer>
-      <div class="container-footer">
-        <div class="row-footer">
-          <!-- footer col-->
-          <div class="footer-col">
-            <h4>Empresa</h4>
-            <ul>
-              <li><a href="#">Quem somos </a></li>
-            </ul>
-          </div>
-          <!--end footer-col col-->
-          <!-- footer-col col-->
-          <div class="footer-col">
-            <h4>Obter ajuda</h4>
-            <ul>
-              <li>
-                <a href="https://wa.me/557599455633" target="_blank">FAQ</a>
-              </li>
-              <li>
-                <a
-                  href="https://www.nelogica.com.br/produtos/modulos-opcionais?modulo=estrategias&id=6932"
-                  target="_blank"
-                  >Obter o curso</a
-                >
-              </li>
-            </ul>
-          </div>
-          <!--end footer-col col-->
-          <!-- footer-col col-->
-          <div class="footer-col">
-            <h4>Entre em contato</h4>
-            <ul>
-              <li>
-                <a href="https://wa.me/557599455633" target="_blank"
-                  >Whatsapp</a
-                >
-              </li>
-              <li><a href="mailto:Ulyssesbarcelos@gmail.com">Email</a></li>
-            </ul>
-          </div>
-          <!--end footer-col col-->
-          <!-- footer-col col-->
-          <div class="footer-col">
-            <h4>Siga nos!</h4>
-            <div class="form-sub"></div>
-
-            <div class="medias-socias">
-              <a
-                href="https://www.youtube.com/@ulyssesbarcelos6635"
-                target="_blank"
-              >
-                <i class="fa fa-youtube"></i>
-              </a>
-              <a href="https://www.instagram.com/shallusa01/" target="_blank">
-                <i class="fa fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-          <!--end footer col-->
-        </div>
-      </div>
-    </footer>
-  </div>
+  </footer>
 </template>
 
 <style scoped>
