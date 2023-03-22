@@ -214,6 +214,7 @@ export default {
             :empreendimento="empreendimento"
           />
         </div>
+        <img src="../assets/geral.png" alt="Banner" class="w-full h-auto" />
         <a href="https://wa.me/5571984318965" target="_blank">
           <img
             src="../assets/mobile3.png"
