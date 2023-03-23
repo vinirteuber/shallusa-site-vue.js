@@ -213,6 +213,30 @@ export default {
             :key="empreendimento.id"
             :empreendimento="empreendimento"
           />
+          <div class="m-7 text-5xl font-bold md:text-md font-bold">
+            <h1
+              class="mb-4 text-3xl font-extrabold text-black md:text-5xl lg:text-6xl"
+            >
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-cyan-400 to-green-700"
+                >Estratégias para o</span
+              >
+              <div class="text-black">MINI INDICE.</div>
+            </h1>
+          </div>
+          <!-- <indice v-for="indice in indices" :key="indice.id" :indice="indice" /> -->
+          <div class="m-7 text-5xl font-bold md:text-md font-bold">
+            <h1
+              class="mb-4 text-3xl font-extrabold text-black md:text-5xl lg:text-6xl"
+            >
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-rose-700 via-red-400 to-rose-700"
+                >Estratégias para
+              </span>
+              <div class="text-black">AÇÕES.</div>
+            </h1>
+          </div>
+          <acoes v-for="acao in acoes" :key="acao.id" :acao="acao" />
         </div>
         <img src="../assets/geral.png" alt="Banner" class="w-full h-auto" />
         <a href="https://wa.me/5571984318965" target="_blank">
@@ -261,18 +285,8 @@ export default {
     <!-- <div class="title-card">
         <h1>INVESTIMENTOS INDICE</h1>
       </div> -->
-    <!-- <div class="cards-two">
-        <div class="indice">
-          <indice v-for="indice in indices" :key="indice.id" :indice="indice" />
-        </div>
-      </div> -->
-    <h1>
-      <!-- INVESTIMENTOS AÇOES <br />
-        (Em breve) -->
-    </h1>
-    <div class="acoes">
-      <acoes v-for="acao in acoes" :key="acao.id" :acao="acao" />
-    </div>
+
+    <div class="acoes"></div>
   </div>
   <footer>
     <div class="container-footer">
