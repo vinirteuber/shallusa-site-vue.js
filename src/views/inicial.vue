@@ -270,16 +270,12 @@ export default {
           alt="Banner"
           class="w-full h-auto hidden md:block lg:block"
         />
-        <img
+        <!-- <img
           src="../assets/mobile6.png"
           alt="Banner"
           class="w-full h-auto block md:hidden"
-        />
-        <img
-          src="../assets/10.png"
-          alt="Banner"
-          class="w-full h-auto hidden md:block lg:block"
-        />
+        /> -->
+        <img src="../assets/rank.png" alt="Banner" class="w-full h-auto" />
       </div>
     </div>
 
