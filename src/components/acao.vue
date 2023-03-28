@@ -75,14 +75,15 @@ export default {
           <div class="flex flex-wrap">
             <div class="object-fill">
               <div class="relative">
-                <img
-                  :src="
-                    acao.foto2.file.replace(
-                      'http://localhost:8000',
-                      'https://gustavorteuber.pythonanywhere.com'
-                    )
-                  "
-                />
+                <a :href="acao.curso" target="_blank">
+                  <img
+                    :src="
+                      acao.foto2.file.replace(
+                        'http://localhost:8000',
+                        'https://gustavorteuber.pythonanywhere.com'
+                      )
+                    "
+                /></a>
                 <button
                   type="button"
                   class="text-gray-700 border border-gray-700 hover:bg-gray-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:focus:ring-gray-800 dark:hover:bg-gray-500 icon absolute bottom-0 right-0"

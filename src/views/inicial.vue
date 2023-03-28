@@ -238,7 +238,8 @@ export default {
           </div>
           <acoes v-for="acao in acoes" :key="acao.id" :acao="acao" />
         </div>
-        <img src="../assets/geral.png" alt="Banner" class="w-full h-auto" />
+        <div class="h-[35px]"></div>
+        <!-- <img src="../assets/geral.png" alt="Banner" class="w-full h-auto" /> -->
         <a href="https://wa.me/5571984318965" target="_blank">
           <img
             src="../assets/mobile3.png"
