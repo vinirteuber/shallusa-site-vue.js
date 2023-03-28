@@ -131,35 +131,6 @@ export default {
       </div>
     </div>
   </div>
-  <!-- <div class="warp">
-    <div class="cards" v-bind="superuser">
-      <div class="card-video">
-        <div class="title">
-          <h1>{{ empreendimento.titulo }}</h1>
-        </div>
-        <div class="desc">
-          <span>{{ empreendimento.descricao }}</span>
-        </div>
-        <div class="video">
-          <iframe :src="empreendimento.link"> </iframe>
-        </div>
-        <div class="admin">
-          <div class="update">
-            <RouterLink :to="`/especificacoesin/${empreendimento.id}`">
-              <button v-if="is_superuser == true">Editar</button></RouterLink
-            >
-          </div>
-        </div>
-        <div class="clicks">
-          <a target="_blank" :href="empreendimento.curso">
-            <div class="button-dolar">
-              <button>Saiba Mais</button>
-            </div></a
-          >
-        </div>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <style scoped>

@@ -224,7 +224,7 @@ export default {
               <div class="text-black">MINI INDICE.</div>
             </h1>
           </div>
-          <!-- <indice v-for="indice in indices" :key="indice.id" :indice="indice" /> -->
+          <indice v-for="indice in indices" :key="indice.id" :indice="indice" />
           <div class="m-7 text-5xl font-bold md:text-md font-bold">
             <h1
               class="mb-4 text-3xl font-extrabold text-black md:text-5xl lg:text-6xl"

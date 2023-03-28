@@ -3,11 +3,17 @@ import { mapState } from "pinia";
 import { useAuthStore } from "../stores/auth";
 import axios from "axios";
 export default {
-  isImageDropdownOpen: false,
-  isDropdownOpen: false,
+  data() {
+    return {
+      isImageDropdownOpen: false,
+      isDropdownOpen: false,
+    };
+  },
   name: "acoes",
   props: ["id", "acao"],
-  user: {},
+  user: {
+    username: "",
+  },
   Acoes: {
     Acao: 0,
   },
