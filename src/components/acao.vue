@@ -3,14 +3,14 @@ import { mapState } from "pinia";
 import { useAuthStore } from "../stores/auth";
 import axios from "axios";
 export default {
+  name: "acoes",
+  props: ["id", "acao"],
   data() {
     return {
       isImageDropdownOpen: false,
       isDropdownOpen: false,
     };
   },
-  name: "acoes",
-  props: ["id", "acao"],
   user: {
     username: "",
   },
@@ -35,6 +35,9 @@ export default {
     );
     this.Acao = res.data;
   },
+  closeNextImage() {
+    this.isDropdownOpen = false;
+  },
   computed: {
     ...mapState(useAuthStore, ["acoes", "username", "foto", "is_superuser"]),
   },
@@ -58,7 +61,7 @@ export default {
         />
         <!-- <button
             type="button"
-            class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500 icon absolute top-0 right-0"
+            class="text-gray-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500 icon absolute top-0 right-0"
           > -->
         <!-- </button> -->
       </div>
@@ -82,8 +85,8 @@ export default {
                 />
                 <button
                   type="button"
-                  class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500 icon absolute top-0 right-0"
-                  @click="toggleImageDropdown"
+                  class="text-gray-700 border border-gray-700 hover:bg-gray-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:focus:ring-gray-800 dark:hover:bg-gray-500 icon absolute bottom-0 right-0"
+                  @click="toggleImageDropdown()"
                 >
                   <i class="fas fa-cog"></i>
                 </button>
@@ -93,29 +96,64 @@ export default {
         </div>
       </div>
     </section>
-
     <div
-      v-if="isNextImageOpen"
+      v-if="isImageDropdownOpen"
       class="fixed inset-0 z-50 overflow-auto flex items-center justify-center"
-      style="background-color: rgba(0, 0, 0, 0.5)"
+      style="
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      "
     >
-      <div class="bg-white p-8 rounded-lg">
+      <div class="absolute top-0 left-0 m-4 z-50">
         <button
           type="button"
-          class="absolute top-0 right-0 z-10 text-black font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mt-2 lg:text-base lg:px-5 lg:py-2.5"
-          @click="closeNextImage"
+          @click="toggleImageDropdown()"
+          class="inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
         >
-          <i class="fas fa-times"></i>
+          <span class="sr-only">Close menu</span>
+          <!-- Heroicon name: outline/x -->
+          <svg
+            class="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
         </button>
-        <img
-          :src="
-            acao.foto3.file.replace(
-              'http://localhost:8000',
-              'https://gustavorteuber.pythonanywhere.com'
-            )
-          "
-          class="max-h-full max-w-full"
-        />
+      </div>
+      <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12">
+        <div class="-m-1 flex flex-wrap md:-m-2">
+          <div class="flex flex-wrap">
+            <div class="object-fill">
+              <div class="relative">
+                <div class="flex justify-center">
+                  <div class="max-w-full">
+                    <div class="image-container">
+                      <img
+                        :src="
+                          acao.foto3.file.replace(
+                            'http://localhost:8000',
+                            'https://gustavorteuber.pythonanywhere.com'
+                          )
+                        "
+                        class="max-h-screen max-w-full"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
